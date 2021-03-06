@@ -17,5 +17,8 @@ class LoginViewController: UIViewController {
     func zhenyaProgramist() {}
 
 
+    func branchFromDev() {
+        
+    }
 }
 
