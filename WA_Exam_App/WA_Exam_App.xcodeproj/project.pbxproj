@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */; };
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
 		EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8C25F3B54A00E12429 /* LoginViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
+				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
+				EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */,
 				EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
