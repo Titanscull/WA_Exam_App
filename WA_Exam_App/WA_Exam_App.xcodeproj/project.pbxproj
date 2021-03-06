@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
-		EE790A8D25F3B54A00E12429 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8C25F3B54A00E12429 /* ViewController.swift */; };
+		EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8C25F3B54A00E12429 /* LoginViewController.swift */; };
 		EE790A9025F3B54A00E12429 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE790A8E25F3B54A00E12429 /* Main.storyboard */; };
 		EE790A9225F3B54B00E12429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE790A9125F3B54B00E12429 /* Assets.xcassets */; };
 		EE790A9525F3B54B00E12429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE790A9325F3B54B00E12429 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EE790A8C25F3B54A00E12429 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE790A8C25F3B54A00E12429 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EE790A8F25F3B54A00E12429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE790A9125F3B54B00E12429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE790A9425F3B54B00E12429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +37,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE0B447525F3EF0500E18886 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EE0B447625F3EF1500E18886 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE790A8E25F3B54A00E12429 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE0B447725F3EF1D00E18886 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EE790A7C25F3B54A00E12429 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +79,11 @@
 		EE790A8725F3B54A00E12429 /* WA_Exam_App */ = {
 			isa = PBXGroup;
 			children = (
+				EE0B447725F3EF1D00E18886 /* Model */,
+				EE0B447625F3EF1500E18886 /* View */,
+				EE0B447525F3EF0500E18886 /* Controller */,
 				EE790A8825F3B54A00E12429 /* AppDelegate.swift */,
 				EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */,
-				EE790A8C25F3B54A00E12429 /* ViewController.swift */,
-				EE790A8E25F3B54A00E12429 /* Main.storyboard */,
 				EE790A9125F3B54B00E12429 /* Assets.xcassets */,
 				EE790A9325F3B54B00E12429 /* LaunchScreen.storyboard */,
 				EE790A9625F3B54B00E12429 /* Info.plist */,
@@ -137,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE790A8D25F3B54A00E12429 /* ViewController.swift in Sources */,
+				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
 				EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */,
 			);
