@@ -85,7 +85,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-QH-O3Q">
                                 <rect key="frame" x="8" y="139" width="398" height="20.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Description Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szK-tA-PLp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error login Description Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szK-tA-PLp">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.94117647059999998" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -217,14 +217,28 @@
                                     <constraint firstItem="HzN-6S-Bfo" firstAttribute="centerX" secondItem="UNK-Fv-ec3" secondAttribute="centerX" id="vaj-61-hdY"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-uP-bMu">
+                                <rect key="frame" x="20" y="98" width="374" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Reg Description Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cA5-F4-yge">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.94117647059999998" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5YS-lR-efX"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UNK-Fv-ec3" firstAttribute="leading" secondItem="5YS-lR-efX" secondAttribute="leading" constant="20" id="Aj0-ty-gTx"/>
                             <constraint firstItem="5YS-lR-efX" firstAttribute="trailing" secondItem="UNK-Fv-ec3" secondAttribute="trailing" constant="20" id="E2R-We-eCn"/>
+                            <constraint firstItem="2Km-uP-bMu" firstAttribute="leading" secondItem="UNK-Fv-ec3" secondAttribute="leading" id="Iio-9G-ukz"/>
                             <constraint firstItem="5YS-lR-efX" firstAttribute="bottom" secondItem="UNK-Fv-ec3" secondAttribute="bottom" id="MiB-ld-7nh"/>
                             <constraint firstItem="UNK-Fv-ec3" firstAttribute="top" secondItem="5YS-lR-efX" secondAttribute="top" constant="50" id="TaQ-Ts-dG0"/>
+                            <constraint firstItem="UNK-Fv-ec3" firstAttribute="top" secondItem="2Km-uP-bMu" secondAttribute="bottom" constant="19.5" id="gfw-OQ-wxy"/>
+                            <constraint firstItem="2Km-uP-bMu" firstAttribute="trailing" secondItem="UNK-Fv-ec3" secondAttribute="trailing" id="h7b-uA-Su7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="QMf-WM-Y1Y">
