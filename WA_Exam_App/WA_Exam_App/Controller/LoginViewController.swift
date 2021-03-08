@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //errorTextLabel.isHidden = true
         setFieldCorners()
         setKeyboardDelegates()
         
@@ -63,10 +64,10 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    // MARK : will add soon
     /// Used to hide errors
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
-        
     }
 }
 
