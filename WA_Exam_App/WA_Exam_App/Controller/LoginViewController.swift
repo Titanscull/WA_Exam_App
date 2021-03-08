@@ -13,19 +13,27 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var goButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        setFields()
+        setFieldCorners()
+        setKeyboardDelegates()
         
     }
     
-    func setFields() {
+    func setKeyboardDelegates() {
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    func setFieldCorners() {
         self.usernameTextField.layer.masksToBounds = true
         self.passwordTextField.layer.masksToBounds = true
-        usernameTextField.layer.cornerRadius = 20
-        passwordTextField.layer.cornerRadius = 20
+        usernameTextField.layer.cornerRadius = 15
+        passwordTextField.layer.cornerRadius = 15
     }
     
     /// Login Button
@@ -38,6 +46,21 @@ class LoginViewController: UIViewController {
 }
 
 
+/// Keyboard Delegates
+extension LoginViewController: UITextFieldDelegate {
+
+    /// Use return button to hide keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+
+    /// Use tap on screen to hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
 
 
 
