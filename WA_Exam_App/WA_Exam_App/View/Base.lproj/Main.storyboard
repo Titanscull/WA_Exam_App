@@ -28,7 +28,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKR-pa-cxF">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="35"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5m0-jc-obB">
                                                         <rect key="frame" x="0.0" y="61" width="382" height="34"/>
@@ -52,6 +52,9 @@
                                         <rect key="frame" x="177" y="246" width="44" height="174"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="GO"/>
+                                        <connections>
+                                            <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wZU-tL-KxE"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-M5-jzZ">
                                         <rect key="frame" x="64" y="492" width="270" height="174"/>
@@ -66,6 +69,7 @@
                                                 <rect key="frame" x="187" y="0.0" width="83" height="174"/>
                                                 <state key="normal" title="Registration"/>
                                                 <connections>
+                                                    <action selector="registrationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BmY-Vr-1h6"/>
                                                     <segue destination="FVv-zT-U1N" kind="show" id="nPm-mA-rMZ"/>
                                                 </connections>
                                             </button>
@@ -76,20 +80,42 @@
                                     <constraint firstItem="tTI-d3-4og" firstAttribute="centerX" secondItem="PO5-Qj-SKo" secondAttribute="centerX" id="Y91-7X-4cD"/>
                                     <constraint firstItem="tTI-d3-4og" firstAttribute="leading" secondItem="PO5-Qj-SKo" secondAttribute="leading" id="Zwr-ht-mfl"/>
                                     <constraint firstAttribute="trailing" secondItem="tTI-d3-4og" secondAttribute="trailing" id="fz3-fO-o1Q"/>
-                                    <constraint firstItem="tTI-d3-4og" firstAttribute="top" secondItem="PO5-Qj-SKo" secondAttribute="top" id="hFa-r5-emL"/>
                                 </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-QH-O3Q">
+                                <rect key="frame" x="8" y="139" width="398" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Description Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szK-tA-PLp">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.94117647059999998" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
+                            <constraint firstItem="hfj-QH-O3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="5XI-tX-4uE"/>
                             <constraint firstItem="PO5-Qj-SKo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="GFg-YN-XDX"/>
+                            <constraint firstItem="szK-tA-PLp" firstAttribute="leading" secondItem="PO5-Qj-SKo" secondAttribute="leading" id="Lgf-xJ-Vts"/>
+                            <constraint firstItem="szK-tA-PLp" firstAttribute="trailing" secondItem="PO5-Qj-SKo" secondAttribute="trailing" id="Nxz-xG-Gyh"/>
+                            <constraint firstItem="szK-tA-PLp" firstAttribute="centerX" secondItem="PO5-Qj-SKo" secondAttribute="centerX" id="Pw5-g5-Jhf"/>
                             <constraint firstItem="PO5-Qj-SKo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="R8G-Aw-ARg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PO5-Qj-SKo" secondAttribute="bottom" constant="8" id="TVN-yc-vI8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PO5-Qj-SKo" secondAttribute="trailing" constant="8" id="bHp-qt-acT"/>
+                            <constraint firstItem="hfj-QH-O3Q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mXN-t8-2cT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hfj-QH-O3Q" secondAttribute="bottom" constant="702.5" id="uUE-Bu-o9L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="NbZ-9t-h9i"/>
+                    <connections>
+                        <outlet property="errorTextLabel" destination="szK-tA-PLp" id="MAy-xg-nI8"/>
+                        <outlet property="goButton" destination="Fyl-xF-VIj" id="VJ5-y4-c9V"/>
+                        <outlet property="passwordTextField" destination="5m0-jc-obB" id="P7p-DU-ml1"/>
+                        <outlet property="usernameTextField" destination="AKR-pa-cxF" id="PBw-Mq-0cB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
