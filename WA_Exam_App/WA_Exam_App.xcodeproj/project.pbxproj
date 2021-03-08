@@ -11,6 +11,7 @@
 		23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34625F5AFB600EF1D40 /* Videos.swift */; };
 		23A5D34A25F5AFD300EF1D40 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34925F5AFD300EF1D40 /* Photos.swift */; };
 		23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34D25F5B46300EF1D40 /* NetworkManager.swift */; };
+		EE2BC0DC25F63EA100ADC479 /* LoginStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2BC0DB25F63EA100ADC479 /* LoginStruct.swift */; };
 		EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */; };
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 		23A5D34625F5AFB600EF1D40 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34925F5AFD300EF1D40 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34D25F5B46300EF1D40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EE2BC0DB25F63EA100ADC479 /* LoginStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStruct.swift; sourceTree = "<group>"; };
 		EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				23A5D34C25F5B40500EF1D40 /* Services */,
 				23A5D34625F5AFB600EF1D40 /* Videos.swift */,
+				EE2BC0DB25F63EA100ADC479 /* LoginStruct.swift */,
 				23A5D34925F5AFD300EF1D40 /* Photos.swift */,
 			);
 			path = Model;
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
+				EE2BC0DC25F63EA100ADC479 /* LoginStruct.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
 				23A5D34425F5AF3800EF1D40 /* ApiManager.swift in Sources */,
 				23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */,
