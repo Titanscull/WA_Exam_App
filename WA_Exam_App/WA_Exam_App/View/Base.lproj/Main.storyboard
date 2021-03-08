@@ -52,6 +52,9 @@
                                         <rect key="frame" x="177" y="246" width="44" height="174"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="GO"/>
+                                        <connections>
+                                            <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wZU-tL-KxE"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-M5-jzZ">
                                         <rect key="frame" x="64" y="492" width="270" height="174"/>
@@ -66,6 +69,7 @@
                                                 <rect key="frame" x="187" y="0.0" width="83" height="174"/>
                                                 <state key="normal" title="Registration"/>
                                                 <connections>
+                                                    <action selector="registrationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BmY-Vr-1h6"/>
                                                     <segue destination="FVv-zT-U1N" kind="show" id="nPm-mA-rMZ"/>
                                                 </connections>
                                             </button>
@@ -90,6 +94,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="NbZ-9t-h9i"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="5m0-jc-obB" id="P7p-DU-ml1"/>
+                        <outlet property="usernameTextField" destination="AKR-pa-cxF" id="PBw-Mq-0cB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
