@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         //errorTextLabel.isHidden = true
         setFieldCorners()
@@ -27,11 +26,13 @@ class LoginViewController: UIViewController {
         
     }
     
+    /// Set delegate to hide keyboard
     func setKeyboardDelegates() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
     }
     
+    /// Makes rounded corners for textField
     func setFieldCorners() {
         self.usernameTextField.layer.masksToBounds = true
         self.passwordTextField.layer.masksToBounds = true
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 15
     }
     
-    /// Login Button
+    /// Try's Data from model?
     @IBAction func loginButton(_ sender: Any) {
     }
     
@@ -52,20 +53,19 @@ class LoginViewController: UIViewController {
 /// Keyboard Delegates
 extension LoginViewController: UITextFieldDelegate {
 
-    /// Use return button to hide keyboard
+    /// Hide keyboard when return button pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         return true
     }
 
-    /// Use tap on screen to hide keyboard
+    /// Tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    // MARK : will add soon
-    /// Used to hide errors
+    /// Hide Error label when typing begun
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
     }

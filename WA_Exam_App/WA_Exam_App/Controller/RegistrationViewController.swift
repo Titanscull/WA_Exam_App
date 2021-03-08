@@ -30,9 +30,7 @@ class RegistrationViewController: UIViewController {
         
     }
     
-    
-    
-    /// Makes rounded corners
+    /// Makes rounded corners for textField
     func setFieldCOrners() {
         self.firstNameTextField.layer.masksToBounds = true
         self.lastNameTextField.layer.masksToBounds = true
@@ -47,7 +45,7 @@ class RegistrationViewController: UIViewController {
         checkPasswordTextField.layer.cornerRadius = 15
     }
     
-    /// Setting delegates for text fields
+    /// Set delegate to hide keyboard
     func setRegTextFieldDelegates() {
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
@@ -62,9 +60,10 @@ class RegistrationViewController: UIViewController {
     
 }
 
-/// Text fields operating delegates
+/// Keyboard Delegates
 extension RegistrationViewController: UITextFieldDelegate {
     
+    /// Hide keyboard when return button pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         firstNameTextField.resignFirstResponder()
         lastNameTextField.resignFirstResponder()
@@ -74,10 +73,12 @@ extension RegistrationViewController: UITextFieldDelegate {
         return true
     }
     
+    /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
         regErrorLabel.isHidden = true
     }
     
+    /// Tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
