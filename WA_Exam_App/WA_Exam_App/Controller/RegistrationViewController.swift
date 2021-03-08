@@ -9,6 +9,8 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var regErrorLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
@@ -56,6 +58,12 @@ class RegistrationViewController: UIViewController {
     
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
+        
+        // Добавить проверки
+        
+//        let loginStruct = LoginStruct(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", userName: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+           
+        
     }
     
 }
