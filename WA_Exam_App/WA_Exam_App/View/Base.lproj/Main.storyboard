@@ -194,6 +194,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="220.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveDataButton:" destination="FVv-zT-U1N" eventType="touchUpInside" id="0Jf-vH-L6a"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -244,6 +247,16 @@
                     <navigationItem key="navigationItem" title="Registration" id="QMf-WM-Y1Y">
                         <barButtonItem key="backBarButtonItem" title="Back" id="7v9-83-4WI"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="checkPasswordTextField" destination="D9m-MM-gKI" id="s1w-eb-WXs"/>
+                        <outlet property="firstNameTextField" destination="oSL-3h-zzp" id="UNg-nb-76i"/>
+                        <outlet property="lastNameTextField" destination="If9-7c-pAj" id="SdJ-37-mkx"/>
+                        <outlet property="passwordTextField" destination="v2v-cW-obk" id="mmb-Ms-dDa"/>
+                        <outlet property="regErrorLabel" destination="cA5-F4-yge" id="8R3-Mk-zkO"/>
+                        <outlet property="saveButton" destination="21f-ca-zUD" id="aUS-Lu-024"/>
+                        <outlet property="userImageView" destination="YwD-wt-vGP" id="f8Y-pW-64J"/>
+                        <outlet property="usernameTextField" destination="QRT-if-wjR" id="5Id-On-r20"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPt-SM-C9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
