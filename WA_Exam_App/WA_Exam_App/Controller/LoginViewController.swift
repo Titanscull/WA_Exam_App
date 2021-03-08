@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var errorTextLabel: UILabel!
+    
     @IBOutlet weak var goButton: UIButton!
     
     override func viewDidLoad() {
@@ -59,6 +61,12 @@ extension LoginViewController: UITextFieldDelegate {
     /// Use tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    /// Used to hide errors
+     func textFieldDidBeginEditing(_ textField: UITextField) {
+        errorTextLabel.isHidden = true
+        
     }
 }
 
