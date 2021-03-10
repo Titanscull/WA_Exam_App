@@ -100,6 +100,7 @@ class RegistrationViewController: UIViewController {
         }
         
         if !name.isEmpty && !surName.isEmpty && !password.isEmpty && !checkedPassword.isEmpty && password == checkedPassword {
+        }
         //
         //        /// Firstname check
         //        if firstNameTextField.text == "" {
