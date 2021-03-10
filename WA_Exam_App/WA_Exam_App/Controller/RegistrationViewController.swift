@@ -58,31 +58,33 @@ class RegistrationViewController: UIViewController {
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
-        let name = firstNameTextField.text!
-        let surName = lastNameTextField.text!
-        let userName = userNameTextField.text!
-        let password = passwordTextField.text!
-        let checkedPassword = checkPasswordTextField.text!
+        let enteredName = firstNameTextField.text ?? ""
+        let enteredSurname = lastNameTextField.text ?? ""
+        let enteredUserName = userNameTextField.text ?? ""
+        let enteredPassword = passwordTextField.text ?? ""
+        let checkedEnteredPassword = checkPasswordTextField.text ?? ""
         
         /// Checking for input of Users data
-        if name.isEmpty || surName.isEmpty ||  password.isEmpty || checkedPassword.isEmpty {
-            if name.isEmpty {
+        if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
+            if enteredName.isEmpty {
                 firstNameTextField.backgroundColor = .red
                 print("Name field is empty")
             }
-            if surName.isEmpty {
+            if enteredSurname.isEmpty {
                 lastNameTextField.backgroundColor = .red
                 print("Surname field is empty")
             }
-            if userName.isEmpty {
+            if enteredUserName.isEmpty {
                 userNameTextField.backgroundColor = .red
                 print("Username field is empty")
+            } else {
+                // MARK: Add loop in array of available User Names
             }
-            if password.isEmpty {
+            if enteredPassword.isEmpty {
                 passwordTextField.backgroundColor = .red
                 print("Password is empty")
             }
-            if checkedPassword.isEmpty {
+            if checkedEnteredPassword.isEmpty {
                 checkPasswordTextField.backgroundColor = .red
                 print("Check password is empty")
             }
@@ -91,86 +93,18 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        if password != checkedPassword {
+        if enteredPassword != checkedEnteredPassword {
             passwordTextField.backgroundColor = .red
             checkPasswordTextField.backgroundColor = .red
             regErrorLabel.isHidden = false
             regErrorLabel.text = "Passwords missmatch"
+            print(regErrorLabel.text!)
             return
         }
         
-        if !name.isEmpty && !surName.isEmpty && !password.isEmpty && !checkedPassword.isEmpty && password == checkedPassword {
+        if !enteredName.isEmpty && !enteredSurname.isEmpty && !enteredPassword.isEmpty && !checkedEnteredPassword.isEmpty && enteredPassword == checkedEnteredPassword {
         }
-        //
-        //        /// Firstname check
-        //        if firstNameTextField.text == "" {
-        //            firstNameTextField.backgroundColor = .red
-        //            regErrorLabel.isHidden = false
-        //            regErrorLabel.text = "First name field is empty"
-        //            print(regErrorLabel.text!)
-        //            return
-        //        }
-        //
-        //        /// Last name check
-        //        if lastNameTextField.text == "" {
-        //            lastNameTextField.backgroundColor = .red
-        //            regErrorLabel.isHidden = false
-        //            regErrorLabel.text = "Last name field is empty"
-        //            print(regErrorLabel.text!)
-        //            return
-        //        }
-        //
-        //        /// UserName check
-        //        if userNameTextField.text == "" {
-        //            userNameTextField.backgroundColor = .red
-        //            regErrorLabel.isHidden = false
-        //            regErrorLabel.text = "User Name field is empty"
-        //            print(regErrorLabel.text!)
-        //        }
-        //
-        //        /// Password check
-        //        // MARK: Will add password validation also
-        //        if passwordTextField.text == "" {
-        //            passwordTextField.backgroundColor = .red
-        //            regErrorLabel.isHidden = false
-        //            regErrorLabel.text = "Missing password"
-        //            print(regErrorLabel.text!)
-        //            return
-        //        } else {
-        //            // Mark: Add validation here??
-        //        }
-        //
-        //        /// Is password equals to self  check
-        //        if checkPasswordTextField.text != passwordTextField.text {
-        //            regErrorLabel.isHidden = false
-        //            regErrorLabel.text = "Password missmatched, check again"
-        //            passwordTextField.backgroundColor = .red
-        //            checkPasswordTextField.backgroundColor = .red
-        //            checkPasswordTextField.text = ""
-        //            passwordTextField.text = ""
-        //            print("Password checking found missmatch")
-        //            print(regErrorLabel.text!)
-        //            return
-        //        }
-        //
-        //        /// Full Check
-        //        if regErrorLabel.text == "" {
-        //
-        //            let name = firstNameTextField.text!
-        //            print("Users firstname now is \(name)")
-        //
-        //            let surName = lastNameTextField.text!
-        //            print("Users last name now is \(surName)")
-        //
-        //            let userName = userNameTextField.text!
-        //            print("Users decide \(userName) to be his Username")
-        //
-        //            let password = passwordTextField.text!
-        //            print("Password added")
-        //
-        //            let loginStruct = LoginStruct(firstName: name , lastName: surName , userName: userName , password: password)
-        //
-        //        }
+        
     }
     
     
