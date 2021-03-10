@@ -22,28 +22,12 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
-    var firstName: String = ""
-    var lastName: String = ""
-    var userName: String = ""
-    var password: String = ""
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resetUserData()
         regErrorLabel.isHidden = true
         setFieldCorners()
         setRegTextFieldDelegates()
-        
-    }
-    
-    /// Clears any input data by previous user
-    func resetUserData() {
-        firstName = ""
-        lastName = ""
-        userName = ""
-        password = ""
         
     }
     
@@ -81,9 +65,6 @@ class RegistrationViewController: UIViewController {
             regErrorLabel.text = "First name field is empty"
             print(regErrorLabel.text!)
             return
-        } else {
-            firstName = firstNameTextField.text!
-            print("Users firstname now is \(firstName)")
         }
         
         /// Last name check
@@ -93,10 +74,6 @@ class RegistrationViewController: UIViewController {
             regErrorLabel.text = "Last name field is empty"
             print(regErrorLabel.text!)
             return
-        } else {
-            lastName = lastNameTextField.text!
-            print("Users last name now is \(lastName)")
-            
         }
         
         /// UserName check
@@ -105,9 +82,6 @@ class RegistrationViewController: UIViewController {
             regErrorLabel.isHidden = false
             regErrorLabel.text = "UserName field is empty"
             print(regErrorLabel.text!)
-        } else {
-            userName = usernameTextField.text!
-            print("Users decide \(userName) to be his Username")
         }
         
         /// Password check
@@ -119,61 +93,67 @@ class RegistrationViewController: UIViewController {
             print(regErrorLabel.text!)
             return
         } else {
-            password = passwordTextField.text!
-            print("Password added")
+            // Mark: Add validation here??
         }
         
         /// Is password equals to self  check
         if checkPasswordTextField.text != passwordTextField.text {
             regErrorLabel.isHidden = false
-            regErrorLabel.text = "Password missmatch, check again"
+            regErrorLabel.text = "Password missmatched, check again"
             passwordTextField.backgroundColor = .red
             checkPasswordTextField.backgroundColor = .red
             checkPasswordTextField.text = ""
             passwordTextField.text = ""
-            print("Password checking missmatch")
+            print("Password checking found missmatch")
             print(regErrorLabel.text!)
             return
-        } else {
-            /// Will ad soon
         }
         
         /// Full Check
-        if !firstName.isEmpty && !lastName.isEmpty && !userName.isEmpty && !password.isEmpty && passwordTextField.text == checkPasswordTextField.text {
+        if regErrorLabel.text == "" {
+            
+            let name = firstNameTextField.text!
+            print("Users firstname now is \(name)")
+            
+            let surname = lastNameTextField.text!
+            print("Users last name now is \(surname)")
+            
+            let userName = usernameTextField.text!
+            print("Users decide \(userName) to be his Username")
+            
+            let password = passwordTextField.text!
+            print("Password added")
+            
+            //            let loginStruct = LoginStruct(firstName: name , lastName: surname , userName: userName , password: password)
             
         }
-        
-        
-        // Добавить проверки
-        
-//        let loginStruct = LoginStruct(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", userName: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
-           
-        
     }
+    
+    
     
 }
 
 /// Keyboard Delegates
 extension RegistrationViewController: UITextFieldDelegate {
     
-    /// Hide keyboard when return button pressed
+    /// Next field after next button pressed or disapear if no fields left
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        firstNameTextField.resignFirstResponder()
-        lastNameTextField.resignFirstResponder()
-        usernameTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        checkPasswordTextField.resignFirstResponder()
+        let textFieldTag: Int = textField.tag
+        
+        if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
         return true
     }
     
     /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
         regErrorLabel.isHidden = true
-        usernameTextField.backgroundColor = .white
-        firstNameTextField.backgroundColor = .white
-        lastNameTextField.backgroundColor = .white
-        passwordTextField.backgroundColor = .white
-        checkPasswordTextField.backgroundColor = .white
+        regErrorLabel.text = ""
+        textField.backgroundColor = .white
     }
     
     /// Tap on screen to hide keyboard
