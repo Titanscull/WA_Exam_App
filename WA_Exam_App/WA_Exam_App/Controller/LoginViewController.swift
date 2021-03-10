@@ -65,7 +65,7 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    /// Hide Error label when typing begun
+    /// Hide Error label when typing began
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
     }
