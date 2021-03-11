@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct PopularVideos {
+struct PopularVideos: Codable {
     var page: String
     var url: String
     var videos: [Videos]
 }
 
-struct Videos {
+struct Videos: Codable {
     var id: Int
     var url: String
     var imageURL: String
@@ -21,7 +21,7 @@ struct Videos {
     var videoFiles: [VideoFile]
 }
 
-struct VideoFile {
+struct VideoFile: Codable {
     var id: Int
     var fileType: String
     var link: String

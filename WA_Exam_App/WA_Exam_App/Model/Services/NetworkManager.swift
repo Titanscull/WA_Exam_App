@@ -27,7 +27,7 @@ class NetworkManager {
         request.addValue(key, forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        session.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             
             if let error = error { failure?(error)
                 return }

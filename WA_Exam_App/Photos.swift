@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CuratedPhotos {
+struct CuratedPhotos: Codable {
     var page: String
     var photos: [Photos]
 }
 
-struct Photos {
+struct Photos: Codable {
     var id: Int
     var url: String
     var photographer: String
