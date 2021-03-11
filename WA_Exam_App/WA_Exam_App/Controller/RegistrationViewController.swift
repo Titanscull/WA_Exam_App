@@ -11,6 +11,7 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var regErrorLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var underImageView: UIView!
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -27,8 +28,17 @@ class RegistrationViewController: UIViewController {
         
         regErrorLabel.isHidden = true
         setFieldCorners()
+        setImageCorners()
         setRegTextFieldDelegates()
         
+    }
+    
+    /// Make Rounder underImageView && UIImageView
+    func setImageCorners() {
+        self.underImageView.layer.masksToBounds = true
+        underImageView.layer.cornerRadius = 50
+        self.userImageView.layer.masksToBounds = true
+        userImageView.layer.cornerRadius = 40
     }
     
     /// Makes rounded corners for textField
@@ -103,6 +113,7 @@ class RegistrationViewController: UIViewController {
         }
         
         if !enteredName.isEmpty && !enteredSurname.isEmpty && !enteredPassword.isEmpty && !checkedEnteredPassword.isEmpty && enteredPassword == checkedEnteredPassword {
+            // MARK: Add save data logic here
         }
         
     }
