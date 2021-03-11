@@ -17,8 +17,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var goButton: UIButton!
     
+    let apiMan = ApiManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        apiMan.getPopularVideos(completion: nil)
         
         //errorTextLabel.isHidden = true
         setFieldCorners()
