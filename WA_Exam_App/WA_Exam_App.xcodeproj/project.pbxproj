@@ -80,8 +80,8 @@
 			children = (
 				23A5D34C25F5B40500EF1D40 /* Services */,
 				23A5D34625F5AFB600EF1D40 /* Videos.swift */,
-				EE2BC0DB25F63EA100ADC479 /* LoginStruct.swift */,
 				23A5D34925F5AFD300EF1D40 /* Photos.swift */,
+				EE2BC0DB25F63EA100ADC479 /* LoginStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

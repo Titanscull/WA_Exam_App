@@ -16,7 +16,6 @@ struct LoginStruct {
     
 //    var userImage: UIImageView
     
-    
 }
 
 

@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //errorTextLabel.isHidden = true
+        errorTextLabel.isHidden = true
         setFieldCorners()
         setKeyboardDelegates()
         
@@ -41,11 +41,37 @@ class LoginViewController: UIViewController {
     }
     
     /// Try's Data from model?
-    @IBAction func loginButton(_ sender: Any) {
+    @IBAction func loginButton(_ sender: UIButton) {
+        
+        let enteredUserName = usernameTextField.text!
+        let enteredPassword = passwordTextField.text!
+        
+        if enteredUserName.isEmpty || enteredPassword.isEmpty {
+            
+            errorTextLabel.isHidden = false
+            errorTextLabel.text = "All fields required"
+            
+            if enteredUserName.isEmpty {
+                usernameTextField.backgroundColor = .red
+                print("User didn't wrote his Username")
+            }
+            if enteredPassword.isEmpty {
+                passwordTextField.backgroundColor = .red
+                print("User didn't wrote password")
+            }
+            
+            return
+            
+        }
+        
+        if !enteredUserName.isEmpty && !enteredPassword.isEmpty {
+            // MARK: Add comparative Logic Here
+        }
+        
     }
     
     /// Registration Button
-    @IBAction func registrationButton(_ sender: Any) {
+    @IBAction func registrationButton(_ sender: UIButton) {
     }
 }
 
@@ -53,10 +79,16 @@ class LoginViewController: UIViewController {
 /// Keyboard Delegates
 extension LoginViewController: UITextFieldDelegate {
 
-    /// Hide keyboard when return button pressed
+    /// Next textField or hide keyboard if no textFields left
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        usernameTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        let textFieldTag: Int = textField.tag
+        
+        if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
         return true
     }
 
@@ -65,9 +97,11 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    /// Hide Error label when typing begun
+    /// Hide Error label when typing began
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
+        errorTextLabel.text = ""
+        textField.backgroundColor = .white
     }
 }
 
