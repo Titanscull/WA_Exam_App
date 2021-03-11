@@ -33,6 +33,19 @@ class RegistrationViewController: UIViewController {
         
     }
     
+    /// Alert
+    func showAlert(textAlert: String) {
+            
+            let alert  = UIAlertController(title: "Ошибка", message: textAlert, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { (_) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+            return
+        }
+    
     /// Make Rounder underImageView && UIImageView
     func setImageCorners() {
         self.underImageView.layer.masksToBounds = true
@@ -78,7 +91,9 @@ class RegistrationViewController: UIViewController {
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
                 firstNameTextField.backgroundColor = .red
+                showAlert(textAlert: "Name field is empty")
                 print("Name field is empty")
+                return
             }
             if enteredSurname.isEmpty {
                 lastNameTextField.backgroundColor = .red
@@ -112,10 +127,8 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        if !enteredName.isEmpty && !enteredSurname.isEmpty && !enteredPassword.isEmpty && !checkedEnteredPassword.isEmpty && enteredPassword == checkedEnteredPassword {
-            // MARK: Add save data logic here
-        }
-        
+      
+/// MARK: Class save data
     }
     
     
