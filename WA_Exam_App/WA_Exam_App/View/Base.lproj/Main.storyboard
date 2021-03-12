@@ -195,21 +195,30 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tnT-XY-soP" userLabel="SaveButton Stack View">
                                         <rect key="frame" x="8" y="403" width="319" height="170.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21f-ca-zUD">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-ee-4w9">
                                                 <rect key="frame" x="0.0" y="0.0" width="319" height="170.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Save"/>
-                                                <connections>
-                                                    <action selector="saveDataButton:" destination="FVv-zT-U1N" eventType="touchUpInside" id="0Jf-vH-L6a"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21f-ca-zUD">
+                                                        <rect key="frame" x="109.5" y="60.5" width="100" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="98E-Ki-fIR"/>
+                                                            <constraint firstAttribute="height" constant="50" id="ld5-z6-Sum"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="saveDataButton:" destination="FVv-zT-U1N" eventType="touchUpInside" id="0Jf-vH-L6a"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerX" secondItem="8Pr-ee-4w9" secondAttribute="centerX" id="F1b-Nl-Jco"/>
+                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerX" secondItem="8Pr-ee-4w9" secondAttribute="centerX" id="U84-eS-mTJ"/>
+                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerY" secondItem="8Pr-ee-4w9" secondAttribute="centerY" id="YS1-Jv-Nzu"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="21f-ca-zUD" secondAttribute="bottom" id="5lp-qA-Hkh"/>
-                                            <constraint firstItem="21f-ca-zUD" firstAttribute="leading" secondItem="tnT-XY-soP" secondAttribute="leading" id="E9x-lc-2Lj"/>
-                                            <constraint firstAttribute="trailing" secondItem="21f-ca-zUD" secondAttribute="trailing" id="kYz-dy-kJP"/>
-                                            <constraint firstItem="21f-ca-zUD" firstAttribute="centerX" secondItem="tnT-XY-soP" secondAttribute="centerX" id="nmf-C2-mPB"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -227,14 +236,6 @@
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-uP-bMu" userLabel="ErrorLabelStackView">
                                 <rect key="frame" x="20" y="54" width="335" height="20.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Reg Description Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cA5-F4-yge">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.94117647059999998" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5YS-lR-efX"/>
@@ -243,9 +244,13 @@
                             <constraint firstItem="UNK-Fv-ec3" firstAttribute="leading" secondItem="5YS-lR-efX" secondAttribute="leading" constant="20" id="Aj0-ty-gTx"/>
                             <constraint firstItem="5YS-lR-efX" firstAttribute="trailing" secondItem="UNK-Fv-ec3" secondAttribute="trailing" constant="20" id="E2R-We-eCn"/>
                             <constraint firstItem="2Km-uP-bMu" firstAttribute="leading" secondItem="UNK-Fv-ec3" secondAttribute="leading" id="Iio-9G-ukz"/>
+                            <constraint firstItem="UNK-Fv-ec3" firstAttribute="leading" secondItem="5YS-lR-efX" secondAttribute="leading" constant="20" id="Kzm-3o-KgX"/>
                             <constraint firstItem="UNK-Fv-ec3" firstAttribute="top" secondItem="5YS-lR-efX" secondAttribute="top" constant="50" id="TaQ-Ts-dG0"/>
-                            <constraint firstItem="UNK-Fv-ec3" firstAttribute="top" secondItem="2Km-uP-bMu" secondAttribute="bottom" constant="19.5" id="gfw-OQ-wxy"/>
+                            <constraint firstItem="5YS-lR-efX" firstAttribute="trailing" secondItem="UNK-Fv-ec3" secondAttribute="trailing" constant="20" id="eSc-HC-gK5"/>
                             <constraint firstItem="2Km-uP-bMu" firstAttribute="trailing" secondItem="UNK-Fv-ec3" secondAttribute="trailing" id="h7b-uA-Su7"/>
+                            <constraint firstAttribute="bottom" secondItem="UNK-Fv-ec3" secondAttribute="bottom" constant="20" id="hJp-Y6-x5k"/>
+                            <constraint firstItem="2Km-uP-bMu" firstAttribute="top" secondItem="5YS-lR-efX" secondAttribute="top" constant="10" id="tB9-qd-W3b"/>
+                            <constraint firstItem="UNK-Fv-ec3" firstAttribute="top" secondItem="2Km-uP-bMu" secondAttribute="bottom" constant="19.5" id="uC3-MX-Zda"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="QMf-WM-Y1Y">
@@ -256,7 +261,6 @@
                         <outlet property="firstNameTextField" destination="oSL-3h-zzp" id="UNg-nb-76i"/>
                         <outlet property="lastNameTextField" destination="If9-7c-pAj" id="SdJ-37-mkx"/>
                         <outlet property="passwordTextField" destination="v2v-cW-obk" id="mmb-Ms-dDa"/>
-                        <outlet property="regErrorLabel" destination="cA5-F4-yge" id="8R3-Mk-zkO"/>
                         <outlet property="saveButton" destination="21f-ca-zUD" id="aUS-Lu-024"/>
                         <outlet property="underImageView" destination="LOB-6S-trC" id="cvd-d5-hqD"/>
                         <outlet property="userImageView" destination="YwD-wt-vGP" id="f8Y-pW-64J"/>
