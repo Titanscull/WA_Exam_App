@@ -10,19 +10,30 @@ import Parse
 
 class UserParseManager: UserEndPointProtocol {
     func createUser(name: String, surname: String, userName: String) {
-        <#code#>
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-        <#code#>
+        let query = PFQuery(className:"User")
+
+        query.findObjectsInBackground { object, error in
+            if let error = error {
+                print("Eroor", error.localizedDescription)
+                return
+            }
+            guard let object = object else {
+                print("User data read is empty")
+                return
+            }
+            print(object.first?["Name"])
+        }
     }
     
     func deleteUser(user: User) {
-        <#code#>
+
     }
     
     func updateUser(user: User) {
-        <#code#>
+   
     }
     
     

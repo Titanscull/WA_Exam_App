@@ -10,19 +10,19 @@ import Parse
 
 class UserManager: UserEndPointProtocol {
     func createUser(name: String, surname: String, userName: String) {
-        <#code#>
+        
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-        <#code#>
+        
     }
     
     func deleteUser(user: User) {
-        <#code#>
+       
     }
     
     func updateUser(user: User) {
-        <#code#>
+        
     }
     
     

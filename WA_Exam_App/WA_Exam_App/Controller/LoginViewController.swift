@@ -30,12 +30,6 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
-        var query = PFQuery(className:"User")
-
-        query.findObjectsInBackground { object, error in
-            print(object?.first?["Name"])
-        }
-        
     }
     
     /// Set delegate to hide keyboard

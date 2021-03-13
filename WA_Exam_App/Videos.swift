@@ -26,12 +26,12 @@ struct Video: Codable {
     let url: String
     let image: String
     let duration: Int
-    let user: User
+//    let user: User
     let videoFiles: [VideoFile]
     let videoPictures: [VideoPicture]
 
     enum CodingKeys: String, CodingKey {
-        case id, width, height, url, image, duration, user
+        case id, width, height, url, image, duration //, user
         case videoFiles = "video_files"
         case videoPictures = "video_pictures"
     }
