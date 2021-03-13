@@ -9,7 +9,6 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
-    @IBOutlet weak var regErrorLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var underImageView: UIView!
     
@@ -26,25 +25,11 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        regErrorLabel.isHidden = true
         setFieldCorners()
         setImageCorners()
         setRegTextFieldDelegates()
         
     }
-    
-    /// Alert
-    func showAlert(textAlert: String) {
-            
-            let alert  = UIAlertController(title: "Ошибка", message: textAlert, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default) { (_) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
-            alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-            return
-        }
     
     /// Make Rounder underImageView && UIImageView
     func setImageCorners() {
@@ -78,6 +63,19 @@ class RegistrationViewController: UIViewController {
         checkPasswordTextField.delegate = self
     }
     
+    /// Alert for errors in input
+    func showAlert(textAlert: String) {
+        let alert  = UIAlertController(title: "Important!", message: textAlert, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        return
+    }
+    
+    
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
@@ -91,9 +89,7 @@ class RegistrationViewController: UIViewController {
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
                 firstNameTextField.backgroundColor = .red
-                showAlert(textAlert: "Name field is empty")
                 print("Name field is empty")
-                return
             }
             if enteredSurname.isEmpty {
                 lastNameTextField.backgroundColor = .red
@@ -102,8 +98,6 @@ class RegistrationViewController: UIViewController {
             if enteredUserName.isEmpty {
                 userNameTextField.backgroundColor = .red
                 print("Username field is empty")
-            } else {
-                // MARK: Add loop in array of available User Names
             }
             if enteredPassword.isEmpty {
                 passwordTextField.backgroundColor = .red
@@ -113,22 +107,16 @@ class RegistrationViewController: UIViewController {
                 checkPasswordTextField.backgroundColor = .red
                 print("Check password is empty")
             }
-            regErrorLabel.isHidden = false
-            regErrorLabel.text = "All fields required"
+            showAlert(textAlert: "Marked fields should be filled")
             return
         }
         
         if enteredPassword != checkedEnteredPassword {
             passwordTextField.backgroundColor = .red
             checkPasswordTextField.backgroundColor = .red
-            regErrorLabel.isHidden = false
-            regErrorLabel.text = "Passwords missmatch"
-            print(regErrorLabel.text!)
+            showAlert(textAlert: "Password is not the same")
             return
         }
-        
-      
-/// MARK: Class save data
     }
     
     
@@ -153,8 +141,6 @@ extension RegistrationViewController: UITextFieldDelegate {
     
     /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        regErrorLabel.isHidden = true
-        regErrorLabel.text = ""
         textField.backgroundColor = .white
     }
     
