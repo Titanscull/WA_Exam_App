@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import Parse
 
 
 protocol UserEndPointProtocol: class {
-    func createUser(name: String, surname: String, userName: String, password: String, complition:  @escaping ((User) -> Void))
-    }
+    func createUser(name: String, surname: String, userName: String)
+    func readUser(completion: @escaping (([User]) -> Void))
+    func deleteUser(user: User)
+    func updateUser(user: User)
+}

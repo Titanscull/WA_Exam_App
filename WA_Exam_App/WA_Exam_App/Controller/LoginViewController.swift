@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -28,6 +29,12 @@ class LoginViewController: UIViewController {
       
         setFieldCorners()
         setKeyboardDelegates()
+        
+        var query = PFQuery(className:"User")
+
+        query.findObjectsInBackground { object, error in
+            print(object?.first?["Name"])
+        }
         
     }
     

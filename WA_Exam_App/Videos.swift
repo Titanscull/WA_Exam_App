@@ -37,12 +37,12 @@ struct Video: Codable {
     }
 }
 
-// MARK: - User
-struct User: Codable {
-    let id: Int
-    let name: String
-    let url: String
-}
+//// MARK: - User
+//struct User: Codable {
+//    let id: Int
+//    let name: String
+//    let url: String
+//}
 
 // MARK: - VideoFile
 struct VideoFile: Codable {
