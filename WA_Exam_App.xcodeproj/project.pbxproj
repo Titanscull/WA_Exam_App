@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A80DDF569F0E5D9BA98BAB5 /* Pods_WA_Exam_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBB2529BF185CAB91843803 /* Pods_WA_Exam_App.framework */; };
 		EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */; };
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16F3C399ACDE655E57516081 /* Pods-WA_Exam_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WA_Exam_App.debug.xcconfig"; path = "Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App.debug.xcconfig"; sourceTree = "<group>"; };
+		73978C300D234A725CC13A50 /* Pods-WA_Exam_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WA_Exam_App.release.xcconfig"; path = "Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App.release.xcconfig"; sourceTree = "<group>"; };
+		AEBB2529BF185CAB91843803 /* Pods_WA_Exam_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WA_Exam_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,12 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A80DDF569F0E5D9BA98BAB5 /* Pods_WA_Exam_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163224CD916527CCC98F040B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB2529BF185CAB91843803 /* Pods_WA_Exam_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EE0B447525F3EF0500E18886 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +81,8 @@
 			children = (
 				EE790A8725F3B54A00E12429 /* WA_Exam_App */,
 				EE790A8625F3B54A00E12429 /* Products */,
+				FD9B24469E67B3D815BFC0F3 /* Pods */,
+				163224CD916527CCC98F040B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +109,16 @@
 			path = WA_Exam_App;
 			sourceTree = "<group>";
 		};
+		FD9B24469E67B3D815BFC0F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C399ACDE655E57516081 /* Pods-WA_Exam_App.debug.xcconfig */,
+				73978C300D234A725CC13A50 /* Pods-WA_Exam_App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE790A9925F3B54B00E12429 /* Build configuration list for PBXNativeTarget "WA_Exam_App" */;
 			buildPhases = (
+				40ACFD691F97C8733BF0C0E5 /* [CP] Check Pods Manifest.lock */,
 				EE790A8125F3B54A00E12429 /* Sources */,
 				EE790A8225F3B54A00E12429 /* Frameworks */,
 				EE790A8325F3B54A00E12429 /* Resources */,
+				09EF77999FD15EE9588D676B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +185,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09EF77999FD15EE9588D676B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40ACFD691F97C8733BF0C0E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WA_Exam_App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE790A8125F3B54A00E12429 /* Sources */ = {
@@ -311,6 +380,7 @@
 		};
 		EE790A9A25F3B54B00E12429 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16F3C399ACDE655E57516081 /* Pods-WA_Exam_App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +400,7 @@
 		};
 		EE790A9B25F3B54B00E12429 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73978C300D234A725CC13A50 /* Pods-WA_Exam_App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
