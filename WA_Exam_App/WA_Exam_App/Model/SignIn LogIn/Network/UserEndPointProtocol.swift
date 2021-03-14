@@ -15,4 +15,6 @@ protocol UserEndPointProtocol: class {
     func deleteUser(user: User)
     func updateUser(user: User)
     
+    
+    
 }
