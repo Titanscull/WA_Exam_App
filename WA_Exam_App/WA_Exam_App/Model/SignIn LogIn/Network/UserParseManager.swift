@@ -24,7 +24,8 @@ class UserParseManager: UserEndPointProtocol {
                 print("User data read is empty")
                 return
             }
-            objects. 
+            let resultArray = objects.compactMap(User.init)
+            completion(resultArray)
         }
     }
     
