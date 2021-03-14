@@ -15,16 +15,16 @@ class UserParseManager: UserEndPointProtocol {
     func readUser(completion: @escaping (([User]) -> Void)) {
         let query = PFQuery(className:"User")
 
-        query.findObjectsInBackground { object, error in
+        query.findObjectsInBackground { objects, error in
             if let error = error {
                 print("Eroor", error.localizedDescription)
                 return
             }
-            guard let object = object else {
+            guard let objects = objects else {
                 print("User data read is empty")
                 return
             }
-            print(object.first?["Name"])
+            objects. 
         }
     }
     

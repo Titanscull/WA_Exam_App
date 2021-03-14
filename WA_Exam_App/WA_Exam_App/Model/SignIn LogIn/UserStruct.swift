@@ -6,18 +6,27 @@
 //
 
 import Foundation
+import Parse
 
 struct User: Codable {
     let name: String
-    let surname: String
+    let surName: String
     let userName: String
     let password: String
     let objectId: String
     
-//    init(name: String, surname: String, userName: String, password: String) {
-//        self.name = name
-//        self.surname = surname
-//        self.userName = userName
-//        self.password = password
-//    }
+    init?(parseObject: PFObject) {
+        guard let name = parseObject["name"] as? String,
+              let surName = parseObject["surname"] as? String,
+              let userName = parseObject["userName"] as? String,
+              let password = parseObject["password"] as? String,
+              let objectId = parseObject.objectId else {
+            return nil
+        }
+        self.name = name
+        self.surName = surName
+        self.userName = userName
+        self.password = password
+        self.objectId = objectId
+    }
 }
