@@ -148,7 +148,3 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,xcode,swift,git
-*.xcuserstate
-WA_Exam_App/WA_Exam_App.xcodeproj/xcuserdata/blashkomaksim.xcuserdatad/xcschemes/xcschememanagement.plist
-WA_Exam_App/.DS_Store
-.DS_Store
