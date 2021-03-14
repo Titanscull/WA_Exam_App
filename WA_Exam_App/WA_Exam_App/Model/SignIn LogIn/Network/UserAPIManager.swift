@@ -20,11 +20,11 @@ class UserAPIManager: UserEndPointProtocol {
     }
     
     func deleteUser(user: User) {
-        <#code#>
+        
     }
     
     func updateUser(user: User) {
-        <#code#>
+        
     }
     
     

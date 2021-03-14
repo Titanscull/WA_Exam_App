@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
     
     let apiMan = ApiManager()
+    
+    /// User parse
+    private let userAPIManager = UserAPIManager()
+    private var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
