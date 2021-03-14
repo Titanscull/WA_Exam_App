@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class RegistrationViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var checkPasswordTextField: UITextField!
     
     @IBOutlet weak var saveButton: UIButton!
+    
+    let userAPIManager = UserAPIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +120,10 @@ class RegistrationViewController: UIViewController {
             showAlert(textAlert: "Password is not the same")
             return
         }
+        
+        userAPIManager.createUser(name: enteredName, surName: enteredSurname, userName: enteredUserName, password: enteredPassword)
+        
+        
     }
     
     

@@ -9,7 +9,7 @@ import Foundation
 import Parse
 
 class UserManager: UserEndPointProtocol {
-    func createUser(name: String, surname: String, userName: String) {
+    func createUser(name: String, surName: String, userName: String, password: String) {
         
     }
     

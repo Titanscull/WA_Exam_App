@@ -9,7 +9,18 @@ import Foundation
 import Parse
 
 class UserParseManager: UserEndPointProtocol {
-    func createUser(name: String, surname: String, userName: String) {
+    func createUser(name: String, surName: String, userName: String, password: String) {
+        let parseObject = PFObject(className:"User")
+
+        // Saves the new object.
+        parseObject.saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            print("The object has been saved.")
+          } else {
+            print("There was a problem, check", error?.localizedDescription)
+          }
+        }
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
@@ -27,14 +38,16 @@ class UserParseManager: UserEndPointProtocol {
             let resultArray = objects.compactMap(User.init)
             completion(resultArray)
         }
+
+        
     }
     
     func deleteUser(user: User) {
-
+        
     }
     
     func updateUser(user: User) {
-   
+        
     }
     
     

@@ -8,11 +8,12 @@
 import Foundation
 
 class UserAPIManager: UserEndPointProtocol {
-    
+   
     private let session: UserEndPointProtocol = UserParseManager()
     
-    func createUser(name: String, surname: String, userName: String) {
-                
+    func createUser(name: String, surName: String, userName: String, password: String) {
+//        session.createUser(completion: completion)
+        session.createUser(name: name, surName: surName, userName: userName, password: password)
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {

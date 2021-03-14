@@ -34,6 +34,28 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
+//        /// Read users
+//        userAPIManager.readUser { [weak self] users in
+//            self?.users = users
+//            print("\([users])")
+//        }
+        let query = PFQuery(className: "User")
+
+        query.findObjectsInBackground { objects, error in
+            print(objects)
+        }
+        
+//        var query = PFQuery(className:"User")
+//
+//        query.getObjectInBackgroundWithId("l1gOnZS177") {
+//          (parseObject: PFObject?, error: NSError?) -> Void in
+//          if error == nil && parseObject != nil {
+//            print(parseObject)
+//          } else {
+//            print(error)
+//          }
+//        }
+        
     }
     
     /// Set delegate to hide keyboard
