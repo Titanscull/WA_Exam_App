@@ -10,7 +10,7 @@ import Parse
 
 struct User: Codable {
     let name: String
-    let surName: String
+    let surname: String
     let userName: String
     let password: String
     let objectId: String
@@ -24,7 +24,7 @@ struct User: Codable {
             return nil
         }
         self.name = name
-        self.surName = surName
+        self.surname = surName
         self.userName = userName
         self.password = password
         self.objectId = objectId

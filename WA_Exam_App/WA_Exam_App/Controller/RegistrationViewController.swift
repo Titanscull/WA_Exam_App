@@ -23,7 +23,7 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
-    let userAPIManager = UserAPIManager()
+    private let userAPIManager = UserAPIManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,11 +82,18 @@ class RegistrationViewController: UIViewController {
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
-        let enteredName = firstNameTextField.text ?? ""
-        let enteredSurname = lastNameTextField.text ?? ""
-        let enteredUserName = userNameTextField.text ?? ""
-        let enteredPassword = passwordTextField.text ?? ""
-        let checkedEnteredPassword = checkPasswordTextField.text ?? ""
+        guard let enteredName = firstNameTextField.text,
+              let enteredSurname = lastNameTextField.text,
+              let enteredUserName = userNameTextField.text,
+              let enteredPassword = passwordTextField.text,
+              let checkedEnteredPassword = checkPasswordTextField.text else { return }
+        
+        
+//        let enteredName = firstNameTextField.text ?? ""
+//        let enteredSurname = lastNameTextField.text ?? ""
+//        let enteredUserName = userNameTextField.text ?? ""
+//        let enteredPassword = passwordTextField.text ?? ""
+//        let checkedEnteredPassword = checkPasswordTextField.text ?? ""
         
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
@@ -121,7 +128,7 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        userAPIManager.createUser(name: enteredName, surName: enteredSurname, userName: enteredUserName, password: enteredPassword)
+        userAPIManager.createUser(name: enteredName, surname: enteredSurname, userName: enteredUserName, password: enteredPassword)
         
         
     }

@@ -9,16 +9,21 @@ import Foundation
 import Parse
 
 class UserParseManager: UserEndPointProtocol {
-    func createUser(name: String, surName: String, userName: String, password: String) {
+    func createUser(name: String, surname: String, userName: String, password: String) {
         let parseObject = PFObject(className:"User")
 
+        parseObject["name"] = name
+        parseObject["surname"] = surname
+        parseObject["userName"] = userName
+        parseObject["password"] = password
+        
         // Saves the new object.
         parseObject.saveInBackground {
           (success: Bool, error: Error?) in
           if (success) {
             print("The object has been saved.")
           } else {
-            print("There was a problem, check", error?.localizedDescription)
+            print("UserParseManager failed to save object")
           }
         }
     }

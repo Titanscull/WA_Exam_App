@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     let apiMan = ApiManager()
     
     /// User parse
-    private let userAPIManager = UserAPIManager()
+    private let userAPIManager = UserAPIManager.shared
     private var users = [User]()
 
     override func viewDidLoad() {
@@ -34,16 +34,16 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
-//        /// Read users
-//        userAPIManager.readUser { [weak self] users in
-//            self?.users = users
-//            print("\([users])")
-//        }
-        let query = PFQuery(className: "User")
-
-        query.findObjectsInBackground { objects, error in
-            print(objects)
+        /// Read users
+        userAPIManager.readUser { [weak self] users in
+            self?.users = users
+            print("\([users])")
         }
+//        let query = PFQuery(className: "User")
+//
+//        query.findObjectsInBackground { objects, error in
+//            print(objects)
+//        }
         
 //        var query = PFQuery(className:"User")
 //
