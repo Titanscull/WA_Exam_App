@@ -88,13 +88,6 @@ class RegistrationViewController: UIViewController {
               let enteredPassword = passwordTextField.text,
               let checkedEnteredPassword = checkPasswordTextField.text else { return }
         
-        
-//        let enteredName = firstNameTextField.text ?? ""
-//        let enteredSurname = lastNameTextField.text ?? ""
-//        let enteredUserName = userNameTextField.text ?? ""
-//        let enteredPassword = passwordTextField.text ?? ""
-//        let checkedEnteredPassword = checkPasswordTextField.text ?? ""
-        
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
@@ -128,7 +121,7 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        userAPIManager.createUser(name: enteredName, surname: enteredSurname, userName: enteredUserName, password: enteredPassword)
+        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, userName: userNameTextField.text!, password: passwordTextField.text!)
         
         
     }

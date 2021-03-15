@@ -39,22 +39,6 @@ class LoginViewController: UIViewController {
             self?.users = users
             print("\([users])")
         }
-//        let query = PFQuery(className: "User")
-//
-//        query.findObjectsInBackground { objects, error in
-//            print(objects)
-//        }
-        
-//        var query = PFQuery(className:"User")
-//
-//        query.getObjectInBackgroundWithId("l1gOnZS177") {
-//          (parseObject: PFObject?, error: NSError?) -> Void in
-//          if error == nil && parseObject != nil {
-//            print(parseObject)
-//          } else {
-//            print(error)
-//          }
-//        }
         
     }
     
@@ -110,9 +94,7 @@ class LoginViewController: UIViewController {
         
         print("Have data to process with")
         
-        if !enteredUserName.isEmpty && !enteredPassword.isEmpty {
-            // MARK: Add comparative Logic Here
-        }
+        userAPIManager.signIn(userName: usernameTextField.text!, password: passwordTextField.text!)
         
     }
     

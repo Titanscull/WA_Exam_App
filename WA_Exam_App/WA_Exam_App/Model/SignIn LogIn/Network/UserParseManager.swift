@@ -9,6 +9,17 @@ import Foundation
 import Parse
 
 class UserParseManager: UserEndPointProtocol {
+    
+    func signIn(userName: String, password: String) {
+        PFUser.logInWithUsername(inBackground: userName , password: password) { user, error in
+                 if user != nil {
+                    print("Balls eye, user data is corrct")
+                 }else {
+                    print("fail to process with data", error!.localizedDescription)
+                 }
+             }
+    }
+    
     func createUser(name: String, surname: String, userName: String, password: String) {
         let parseObject = PFObject(className:"User")
 

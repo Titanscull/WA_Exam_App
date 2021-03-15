@@ -8,12 +8,16 @@
 import Foundation
 
 class UserAPIManager: UserEndPointProtocol {
-    
+   
     static let shared = UserAPIManager()
     
     private init() { }
    
     private let session: UserEndPointProtocol = UserParseManager()
+    
+    func signIn(userName: String, password: String) {
+        session.signIn(userName: userName, password: password)
+    }
     
     func createUser(name: String, surname: String, userName: String, password: String) {
         session.createUser(name: name, surname: surname, userName: userName, password: password)
