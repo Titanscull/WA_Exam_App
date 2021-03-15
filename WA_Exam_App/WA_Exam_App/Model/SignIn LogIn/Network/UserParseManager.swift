@@ -16,14 +16,14 @@ class UserParseManager: UserEndPointProtocol {
         parseObject["surname"] = surname
         parseObject["userName"] = userName
         parseObject["password"] = password
-        
+
         // Saves the new object.
         parseObject.saveInBackground {
           (success: Bool, error: Error?) in
           if (success) {
-            print("The object has been saved.")
+            print("New user have benn saved")
           } else {
-            print("UserParseManager failed to save object")
+            print("Can not save user")
           }
         }
     }
