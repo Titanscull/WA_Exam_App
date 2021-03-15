@@ -17,14 +17,14 @@ struct User: Codable {
     
     init?(parseObject: PFObject) {
         guard let name = parseObject["name"] as? String,
-              let surName = parseObject["surname"] as? String,
+              let surname = parseObject["surname"] as? String,
               let userName = parseObject["userName"] as? String,
               let password = parseObject["password"] as? String,
               let objectId = parseObject.objectId else {
             return nil
         }
         self.name = name
-        self.surname = surName
+        self.surname = surname
         self.userName = userName
         self.password = password
         self.objectId = objectId
