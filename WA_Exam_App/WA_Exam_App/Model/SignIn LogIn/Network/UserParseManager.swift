@@ -13,7 +13,7 @@ class UserParseManager: UserEndPointProtocol {
     func signIn(userName: String, password: String) {
         PFUser.logInWithUsername(inBackground: userName , password: password) { user, error in
             if user != nil {
-                print("Balls eye, user data is corrct")
+                print("Balls eye, user data is correct")
             } else {
                 print("Failed to process with data - ", error!.localizedDescription)
             }
