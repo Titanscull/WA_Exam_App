@@ -80,12 +80,14 @@ class LoginViewController: UIViewController {
             } else if enteredUserName.isEmpty {
                 errorTextLabel.isHidden = false
                 errorTextLabel.text = "Write youre User Name, please"
-                usernameTextField.backgroundColor = .red
+                usernameTextField.layer.borderWidth = 2
+                usernameTextField.layer.borderColor = UIColor.red.cgColor
                 print("User didn't wrote his Username")
             } else if enteredPassword.isEmpty {
                 errorTextLabel.isHidden = false
                 errorTextLabel.text = "Password for you're User Name is empty"
-                passwordTextField.backgroundColor = .red
+                passwordTextField.layer.borderWidth = 2
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("User didn't wrote password")
             }
             
@@ -129,7 +131,8 @@ extension LoginViewController: UITextFieldDelegate {
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
-        textField.backgroundColor = .white
+        textField.layer.borderWidth = 0
+        textField.layer.borderColor = UIColor.white.cgColor
     }
 }
 
