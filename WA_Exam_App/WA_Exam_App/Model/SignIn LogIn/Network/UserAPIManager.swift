@@ -19,8 +19,8 @@ class UserAPIManager: UserEndPointProtocol {
         session.signIn(userName: userName, password: password)
     }
     
-    func createUser(name: String, surname: String, userName: String, password: String) {
-        session.createUser(name: name, surname: surname, userName: userName, password: password)
+    func createUser(name: String, surname: String, userName: String, password: String, completion: @escaping ((User) -> Void)) {
+        session.createUser(name: name, surname: surname, userName: userName, password: password, completion: completion)
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {

@@ -129,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */,
-				EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */,
 				EE57E55525FD1F38001C7B7B /* UserParseManager.swift */,
+				EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */,
 				EE57E55825FD1F8C001C7B7B /* UserManager.swift */,
 			);
 			path = Network;
