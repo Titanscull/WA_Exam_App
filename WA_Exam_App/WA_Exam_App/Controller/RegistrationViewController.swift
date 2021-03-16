@@ -128,7 +128,7 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, userName: userNameTextField.text!, password: passwordTextField.text!) { _ in
+        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }

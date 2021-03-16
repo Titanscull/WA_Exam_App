@@ -15,12 +15,12 @@ class UserAPIManager: UserEndPointProtocol {
    
     private let session: UserEndPointProtocol = UserParseManager()
     
-    func signIn(userName: String, password: String) {
-        session.signIn(userName: userName, password: password)
+    func signIn(username: String, password: String) {
+        session.signIn(username: username, password: password)
     }
     
-    func createUser(name: String, surname: String, userName: String, password: String, completion: @escaping ((User) -> Void)) {
-        session.createUser(name: name, surname: surname, userName: userName, password: password, completion: completion)
+    func createUser(name: String, surname: String, username: String, password: String, completion: @escaping ((User) -> Void)) {
+        session.createUser(name: name, surname: surname, username: username, password: password, completion: completion)
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {

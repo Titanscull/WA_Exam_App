@@ -15,13 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let parseConfig = ParseClientConfiguration {
-            $0.applicationId = "uqm6GiA4DjpkYdUc6fiiG8sieJ0TfDU1yheqk4bx"
-            $0.clientKey = "K5hd2sgj1Hn5PeSW3QOBkeW9Lk3QW6S0BvK27ttV"
-            $0.server = "https://parseapi.back4app.com"
-        }
-        Parse.initialize(with: parseConfig)
-        saveInstallationObject()
+          let parseConfig = ParseClientConfiguration {
+              $0.applicationId = "W8hZRX60OWX9AeFtXKUupWGfzzA1774ncVlEEl5O"
+              $0.clientKey = "6eUkUYfZTyDasmawr663Eu2MGtFcmmuZhVNwelYy"
+              $0.server = "https://parseapi.back4app.com"
+          }
+          Parse.initialize(with: parseConfig)
         
         return true
     }

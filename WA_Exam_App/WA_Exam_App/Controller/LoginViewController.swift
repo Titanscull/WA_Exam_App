@@ -35,10 +35,10 @@ class LoginViewController: UIViewController {
         setKeyboardDelegates()
         
         /// Read users
-        userAPIManager.readUser { [weak self] users in
-            self?.users = users
-            print("\([users])")
-        }
+//        userAPIManager.readUser { [weak self] users in
+//            self?.users = users
+//            print("\([users])")
+//        }
         
     }
     
@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
         
         print("Have data to process with")
         
-        userAPIManager.signIn(userName: usernameTextField.text!, password: passwordTextField.text!)
+        userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
         
     }
     
