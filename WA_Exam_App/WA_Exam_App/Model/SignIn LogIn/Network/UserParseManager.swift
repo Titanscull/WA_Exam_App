@@ -15,7 +15,7 @@ class UserParseManager: UserEndPointProtocol {
             if user != nil {
                 print("Balls eye, user data is corrct")
             } else {
-                print("fail to process with data", error!.localizedDescription)
+                print("Failed to process with data - ", error!.localizedDescription)
             }
         }
     }
