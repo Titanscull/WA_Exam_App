@@ -91,23 +91,28 @@ class RegistrationViewController: UIViewController {
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
-                firstNameTextField.backgroundColor = .red
+                firstNameTextField.layer.borderWidth = 2
+                firstNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Name field is empty")
             }
             if enteredSurname.isEmpty {
-                lastNameTextField.backgroundColor = .red
+                lastNameTextField.layer.borderWidth = 2
+                lastNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Surname field is empty")
             }
             if enteredUserName.isEmpty {
-                userNameTextField.backgroundColor = .red
+                userNameTextField.layer.borderWidth = 2
+                userNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Username field is empty")
             }
             if enteredPassword.isEmpty {
-                passwordTextField.backgroundColor = .red
+                passwordTextField.layer.borderWidth = 2
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Password is empty")
             }
             if checkedEnteredPassword.isEmpty {
-                checkPasswordTextField.backgroundColor = .red
+                checkPasswordTextField.layer.borderWidth = 2
+                checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Check password is empty")
             }
             showAlert(textAlert: "Marked fields should be filled")
@@ -115,14 +120,19 @@ class RegistrationViewController: UIViewController {
         }
         
         if enteredPassword != checkedEnteredPassword {
-            passwordTextField.backgroundColor = .red
-            checkPasswordTextField.backgroundColor = .red
+            passwordTextField.layer.borderWidth = 2
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            checkPasswordTextField.layer.borderWidth = 2
+            checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
             showAlert(textAlert: "Password is not the same")
             return
         }
         
-        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, userName: userNameTextField.text!, password: passwordTextField.text!)
-        
+        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, userName: userNameTextField.text!, password: passwordTextField.text!) { _ in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
         
     }
     
@@ -149,6 +159,8 @@ extension RegistrationViewController: UITextFieldDelegate {
     /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.backgroundColor = .white
+        textField.layer.borderWidth = 0
+        textField.layer.borderColor = UIColor.red.cgColor
     }
     
     /// Tap on screen to hide keyboard
