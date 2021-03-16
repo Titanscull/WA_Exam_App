@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
     
     let apiMan = ApiManager()
+    
+    /// User parse
+    private let userAPIManager = UserAPIManager.shared
+    private var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +34,30 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
+        /// Read users
+//        userAPIManager.readUser { [weak self] users in
+//            self?.users = users
+//            print("\([users])")
+//        }
+        
     }
     
     /// Set delegate to hide keyboard
     func setKeyboardDelegates() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    /// Alert for errors in input
+    func showAlert(textAlert: String) {
+        let alert  = UIAlertController(title: "Important!", message: textAlert, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        return
     }
     
     /// Makes rounded corners for textField
@@ -53,26 +75,28 @@ class LoginViewController: UIViewController {
         let enteredPassword = passwordTextField.text!
         
         if enteredUserName.isEmpty || enteredPassword.isEmpty {
-            
-            errorTextLabel.isHidden = false
-            errorTextLabel.text = "All fields required"
-            
-            if enteredUserName.isEmpty {
-                usernameTextField.backgroundColor = .red
+            if enteredPassword.isEmpty && enteredUserName.isEmpty{
+            showAlert(textAlert: "First fill all fields")
+            } else if enteredUserName.isEmpty {
+                errorTextLabel.isHidden = false
+                errorTextLabel.text = "Write youre User Name, please"
+                usernameTextField.layer.borderWidth = 2
+                usernameTextField.layer.borderColor = UIColor.red.cgColor
                 print("User didn't wrote his Username")
-            }
-            if enteredPassword.isEmpty {
-                passwordTextField.backgroundColor = .red
+            } else if enteredPassword.isEmpty {
+                errorTextLabel.isHidden = false
+                errorTextLabel.text = "Password for you're User Name is empty"
+                passwordTextField.layer.borderWidth = 2
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("User didn't wrote password")
             }
             
             return
-            
         }
         
-        if !enteredUserName.isEmpty && !enteredPassword.isEmpty {
-            // MARK: Add comparative Logic Here
-        }
+        print("Have data to process with")
+        
+        userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
         
     }
     
@@ -107,7 +131,8 @@ extension LoginViewController: UITextFieldDelegate {
      func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
-        textField.backgroundColor = .white
+        textField.layer.borderWidth = 0
+        textField.layer.borderColor = UIColor.white.cgColor
     }
 }
 

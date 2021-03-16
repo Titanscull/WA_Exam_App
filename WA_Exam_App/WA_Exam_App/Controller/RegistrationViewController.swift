@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class RegistrationViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
+    private let userAPIManager = UserAPIManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +37,9 @@ class RegistrationViewController: UIViewController {
     /// Make Rounder underImageView && UIImageView
     func setImageCorners() {
         self.underImageView.layer.masksToBounds = true
-        underImageView.layer.cornerRadius = 50
+        underImageView.layer.cornerRadius = 80
         self.userImageView.layer.masksToBounds = true
-        userImageView.layer.cornerRadius = 40
+        userImageView.layer.cornerRadius = 70
     }
     
     /// Makes rounded corners for textField
@@ -79,32 +82,37 @@ class RegistrationViewController: UIViewController {
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
-        let enteredName = firstNameTextField.text ?? ""
-        let enteredSurname = lastNameTextField.text ?? ""
-        let enteredUserName = userNameTextField.text ?? ""
-        let enteredPassword = passwordTextField.text ?? ""
-        let checkedEnteredPassword = checkPasswordTextField.text ?? ""
+        guard let enteredName = firstNameTextField.text,
+              let enteredSurname = lastNameTextField.text,
+              let enteredUserName = userNameTextField.text,
+              let enteredPassword = passwordTextField.text,
+              let checkedEnteredPassword = checkPasswordTextField.text else { return }
         
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
-                firstNameTextField.backgroundColor = .red
+                firstNameTextField.layer.borderWidth = 2
+                firstNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Name field is empty")
             }
             if enteredSurname.isEmpty {
-                lastNameTextField.backgroundColor = .red
+                lastNameTextField.layer.borderWidth = 2
+                lastNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Surname field is empty")
             }
             if enteredUserName.isEmpty {
-                userNameTextField.backgroundColor = .red
+                userNameTextField.layer.borderWidth = 2
+                userNameTextField.layer.borderColor = UIColor.red.cgColor
                 print("Username field is empty")
             }
             if enteredPassword.isEmpty {
-                passwordTextField.backgroundColor = .red
+                passwordTextField.layer.borderWidth = 2
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Password is empty")
             }
             if checkedEnteredPassword.isEmpty {
-                checkPasswordTextField.backgroundColor = .red
+                checkPasswordTextField.layer.borderWidth = 2
+                checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Check password is empty")
             }
             showAlert(textAlert: "Marked fields should be filled")
@@ -112,11 +120,20 @@ class RegistrationViewController: UIViewController {
         }
         
         if enteredPassword != checkedEnteredPassword {
-            passwordTextField.backgroundColor = .red
-            checkPasswordTextField.backgroundColor = .red
+            passwordTextField.layer.borderWidth = 2
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            checkPasswordTextField.layer.borderWidth = 2
+            checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
             showAlert(textAlert: "Password is not the same")
             return
         }
+        
+        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
     
@@ -142,6 +159,8 @@ extension RegistrationViewController: UITextFieldDelegate {
     /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.backgroundColor = .white
+        textField.layer.borderWidth = 0
+        textField.layer.borderColor = UIColor.red.cgColor
     }
     
     /// Tap on screen to hide keyboard
