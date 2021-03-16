@@ -137,7 +137,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-6S-trC">
                                                 <rect key="frame" x="0.0" y="0.0" width="267" height="170.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cannibal" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-wt-vGP">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cannibal" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-wt-vGP">
                                                         <rect key="frame" x="8" y="8" width="251" height="154.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="154.5" id="ZQx-n2-hUL"/>
@@ -145,7 +145,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                                 <constraints>
                                                     <constraint firstItem="YwD-wt-vGP" firstAttribute="top" secondItem="LOB-6S-trC" secondAttribute="top" constant="8" id="079-tp-Usc"/>
                                                     <constraint firstAttribute="trailing" secondItem="YwD-wt-vGP" secondAttribute="trailing" constant="8" id="2To-cb-KXC"/>
@@ -311,6 +311,9 @@
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>

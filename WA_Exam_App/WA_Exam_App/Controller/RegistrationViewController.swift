@@ -37,9 +37,9 @@ class RegistrationViewController: UIViewController {
     /// Make Rounder underImageView && UIImageView
     func setImageCorners() {
         self.underImageView.layer.masksToBounds = true
-        underImageView.layer.cornerRadius = 50
+        underImageView.layer.cornerRadius = 80
         self.userImageView.layer.masksToBounds = true
-        userImageView.layer.cornerRadius = 40
+        userImageView.layer.cornerRadius = 70
     }
     
     /// Makes rounded corners for textField
