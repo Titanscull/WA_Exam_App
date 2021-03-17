@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private let userAPIManager = UserAPIManager.shared
+    private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,33 @@ class RegistrationViewController: UIViewController {
         return
     }
     
+    /// Regex implementation
+    func regexTest(password : String) -> Bool {
+        let validation = NSPredicate(format: "SELF MATCHES %@", regexCondition)
+        return validation.evaluate(with: password)
+    }
+    
+    /// Check if password is valid & allow to register a user
+    func validatePasswordAndRegister() {
+        let isValid = regexTest(password: passwordTextField.text!)
+        
+        if (isValid == false) {
+            showAlert(textAlert: "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght ")
+            passwordTextField.layer.borderWidth = 2
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            print("Password didnt passed Validation")
+            
+            return
+        } else {
+            userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            print("Password valid - user is safe")
+        }
+    }
+    
     
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
@@ -89,7 +117,7 @@ class RegistrationViewController: UIViewController {
               let checkedEnteredPassword = checkPasswordTextField.text else { return }
         
         /// Checking for input of Users data
-        if enteredName.isEmpty || enteredSurname.isEmpty ||  enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
+        if enteredName.isEmpty || enteredSurname.isEmpty || enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
                 firstNameTextField.layer.borderWidth = 2
                 firstNameTextField.layer.borderColor = UIColor.red.cgColor
@@ -128,14 +156,9 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
-            DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
+        validatePasswordAndRegister()
         
     }
-    
     
     
 }
