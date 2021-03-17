@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private let userAPIManager = UserAPIManager.shared
+    private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,19 +80,21 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Regex implementation
-    func regexTest(userPassword : String) -> Bool {
-        let regExPass =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
-        let test = NSPredicate(format: "SELF MATCHES %@", regExPass)
-        return test.evaluate(with: userPassword)
+    func regexTest(password : String) -> Bool {
+        let validation = NSPredicate(format: "SELF MATCHES %@", regexCondition)
+        return validation.evaluate(with: password)
     }
     
     /// Check if password is valid & allow to register a user
     func validatePasswordAndRegister() {
-        let password = regexTest(userPassword: passwordTextField.text!)
+        let isValid = regexTest(password: passwordTextField.text!)
         
-        if (password == false) {
+        if (isValid == false) {
             showAlert(textAlert: "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght ")
-            print("Password isn't valid")
+            passwordTextField.layer.borderWidth = 2
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            print("Password didnt passed Validation")
+            
             return
         } else {
             userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
