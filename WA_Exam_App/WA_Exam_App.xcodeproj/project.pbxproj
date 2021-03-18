@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23680CDF2603F64E00DBC0FA /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680CDD2603F64E00DBC0FA /* ContentCell.swift */; };
+		23680CE02603F64E00DBC0FA /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23680CDE2603F64E00DBC0FA /* ContentCell.xib */; };
+		23680CED2603F91E00DBC0FA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */; };
+		23680CF02603F92D00DBC0FA /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680CEF2603F92D00DBC0FA /* VideosViewController.swift */; };
 		23A5D34425F5AF3800EF1D40 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34325F5AF3800EF1D40 /* ApiManager.swift */; };
 		23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34625F5AFB600EF1D40 /* Videos.swift */; };
 		23A5D34A25F5AFD300EF1D40 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34925F5AFD300EF1D40 /* Photos.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23680CDD2603F64E00DBC0FA /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		23680CDE2603F64E00DBC0FA /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
+		23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		23680CEF2603F92D00DBC0FA /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		23A5D34325F5AF3800EF1D40 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiManager.swift; path = WA_Exam_App/Model/Services/ApiManager.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34625F5AFB600EF1D40 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34925F5AFD300EF1D40 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = SOURCE_ROOT; };
@@ -71,6 +79,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		23680CDC2603F5CD00DBC0FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				23680CDD2603F64E00DBC0FA /* ContentCell.swift */,
+				23680CDE2603F64E00DBC0FA /* ContentCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		23680CEA2603F88800DBC0FA /* Tab bar */ = {
+			isa = PBXGroup;
+			children = (
+				23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */,
+				23680CEF2603F92D00DBC0FA /* VideosViewController.swift */,
+			);
+			path = "Tab bar";
+			sourceTree = "<group>";
+		};
 		23A5D34C25F5B40500EF1D40 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +117,7 @@
 		EE0B447525F3EF0500E18886 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				23680CEA2603F88800DBC0FA /* Tab bar */,
 				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
 				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
 			);
@@ -100,6 +127,7 @@
 		EE0B447625F3EF1500E18886 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				23680CDC2603F5CD00DBC0FA /* Cells */,
 				EE790A8E25F3B54A00E12429 /* Main.storyboard */,
 			);
 			path = View;
@@ -231,6 +259,7 @@
 				EE790A9525F3B54B00E12429 /* LaunchScreen.storyboard in Resources */,
 				EE790A9225F3B54B00E12429 /* Assets.xcassets in Resources */,
 				EE790A9025F3B54A00E12429 /* Main.storyboard in Resources */,
+				23680CE02603F64E00DBC0FA /* ContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
+				23680CDF2603F64E00DBC0FA /* ContentCell.swift in Sources */,
 				EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
 				23A5D34425F5AF3800EF1D40 /* ApiManager.swift in Sources */,
@@ -291,10 +321,12 @@
 				23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */,
 				EE78A60525FE27DF00ECFC9F /* UserAPIManager.swift in Sources */,
 				EE57E55925FD1F8C001C7B7B /* UserManager.swift in Sources */,
+				23680CED2603F91E00DBC0FA /* PhotosViewController.swift in Sources */,
 				EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */,
 				23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */,
 				EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */,
 				EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */,
+				23680CF02603F92D00DBC0FA /* VideosViewController.swift in Sources */,
 				23A5D34A25F5AFD300EF1D40 /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
