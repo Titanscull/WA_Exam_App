@@ -19,27 +19,40 @@ enum EndpointAPI: String {
 class ApiManager {
     
     private let apiKey = "563492ad6f9170000100000126a561c26bd84e81b21ed68b3a06ce81"
-    private let networkManager = NetworkManager()
+    private let networkManager = NetworkManager.shared
+    static let shared = ApiManager()
+    private init() { }
     
     // formation and processing the request (get, decode json ...)
     
-    func getPopularVideos(completion: (() -> ())?) {
-        networkManager.performRequest(url: EndpointAPI.popularVideos.rawValue, method: .get, key: apiKey, params: [:], success: { [weak self] (data) in
-            let popular = self?.convert(data: data)
+    func getVideos(completion: (() -> ())?) {
+        networkManager.performRequest(url: EndpointAPI.popularVideos.rawValue, method: .get, key: apiKey, success: { (data) in
+            
+            do {
+                let decodeData = try JSONDecoder().decode(PopularVideos.self, from: data)
+                print(decodeData)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
         }) { (error) in
-            print(error?.localizedDescription)
+            print(error?.localizedDescription as Any)
         }
     }
     
-    func convert(data: Data) -> PopularVideos? {
-        
-        do {
-            let popular = try JSONDecoder().decode(PopularVideos.self, from: data) // ERROR - The data couldn’t be read because it isn’t in the correct format.
-            return popular
-        } catch {
-            return nil
+    func getPhotos(completion: (() -> ())?) {
+        networkManager.performRequest(url: EndpointAPI.curatedPhotos.rawValue, method: .get, key: apiKey, success: { (data) in
+            
+            do {
+                let decodeData = try JSONDecoder().decode(CuratedPhotos.self, from: data)
+                print(decodeData)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }) { (error) in
+            print(error?.localizedDescription as Any)
         }
-        
     }
     
 }
