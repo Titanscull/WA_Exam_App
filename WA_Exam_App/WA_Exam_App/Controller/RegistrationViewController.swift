@@ -33,7 +33,7 @@ class RegistrationViewController: UIViewController {
         
         setFieldCorners()
         setImageCorners()
-        setRegTextFieldDelegates()
+        setTextFieldDelegates()
         
     }
     
@@ -41,6 +41,7 @@ class RegistrationViewController: UIViewController {
     func setImageCorners() {
         self.underImageView.layer.masksToBounds = true
         underImageView.layer.cornerRadius = 80
+        
         self.userImageView.layer.masksToBounds = true
         userImageView.layer.cornerRadius = 70
     }
@@ -61,7 +62,7 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Set delegate to hide keyboard
-    func setRegTextFieldDelegates() {
+    func setTextFieldDelegates() {
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         userNameTextField.delegate = self
@@ -70,12 +71,11 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Alert for errors in input
-    func showAlert(textAlert: String) {
-        let alert  = UIAlertController(title: "Important!", message: textAlert, preferredStyle: .alert)
+    func showAlert(text: String) {
+        let alert  = UIAlertController(title: "Important!", message: text, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
         }
-        
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
         return
@@ -87,16 +87,15 @@ class RegistrationViewController: UIViewController {
         return validation.evaluate(with: password)
     }
     
-    /// Check if password is valid & allow to register a user
+    /// Check if password is valid & allow to register new user
     func validatePasswordAndRegister() {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
-            showAlert(textAlert: regexConditionText)
+            showAlert(text: regexConditionText)
             passwordTextField.layer.borderWidth = 2
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             print("Password didnt passed Validation")
-            
             return
         } else {
             userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
@@ -145,7 +144,7 @@ class RegistrationViewController: UIViewController {
                 checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Check password is empty")
             }
-            showAlert(textAlert: "Marked fields should be filled")
+            showAlert(text: "Marked fields should be filled")
             return
         }
         
@@ -154,7 +153,7 @@ class RegistrationViewController: UIViewController {
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             checkPasswordTextField.layer.borderWidth = 2
             checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
-            showAlert(textAlert: "Password is not the same")
+            showAlert(text: "Password is not the same")
             return
         }
         
@@ -177,7 +176,6 @@ extension RegistrationViewController: UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
-        
         return true
     }
     

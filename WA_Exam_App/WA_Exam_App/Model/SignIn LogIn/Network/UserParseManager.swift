@@ -40,7 +40,7 @@ class UserParseManager: UserEndPointProtocol {
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-
+        
     }
     
     func deleteUser(user: User) {
