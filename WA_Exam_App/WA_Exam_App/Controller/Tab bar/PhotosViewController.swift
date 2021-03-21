@@ -32,7 +32,7 @@ class PhotosViewController: UIViewController {
     }
 }
 
-extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
