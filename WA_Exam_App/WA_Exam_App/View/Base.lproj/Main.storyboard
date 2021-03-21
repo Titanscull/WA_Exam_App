@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="72" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-Qj-SKo" userLabel="Main Stack View">
-                                <rect key="frame" x="8" y="144" width="359" height="515"/>
+                                <rect key="frame" x="8" y="100" width="359" height="515"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTI-d3-4og">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="123.5"/>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-QH-O3Q" userLabel="Error Label Stack View">
-                                <rect key="frame" x="8" y="95" width="359" height="20.5"/>
+                                <rect key="frame" x="8" y="51" width="359" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error login Description Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szK-tA-PLp">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
@@ -125,11 +125,11 @@
             <objects>
                 <viewController id="FVv-zT-U1N" customClass="RegistrationViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9z2-qh-Qq0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="UNK-Fv-ec3" userLabel="Main Stack View">
-                                <rect key="frame" x="15" y="59" width="345" height="593"/>
+                                <rect key="frame" x="15" y="15" width="345" height="593"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="avT-1S-tWZ">
                                         <rect key="frame" x="39" y="0.0" width="267" height="170.5"/>
@@ -260,7 +260,7 @@
                             <constraint firstItem="5YS-lR-efX" firstAttribute="bottom" secondItem="UNK-Fv-ec3" secondAttribute="bottom" constant="15" id="Z3T-R7-u7i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Registration" id="QMf-WM-Y1Y">
+                    <navigationItem key="navigationItem" title="Registration" leftItemsSupplementBackButton="YES" id="QMf-WM-Y1Y">
                         <barButtonItem key="backBarButtonItem" title="Back" id="7v9-83-4WI"/>
                     </navigationItem>
                     <connections>
@@ -283,10 +283,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fgd-in-cMe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xip-Lw-KrJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Xip-Lw-KrJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="tertiarySystemFillColor"/>
                         <textAttributes key="titleTextAttributes">
@@ -308,9 +308,6 @@
         <image name="Cannibal" width="696" height="804"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

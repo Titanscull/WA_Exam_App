@@ -34,12 +34,6 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
-        /// Read users
-//        userAPIManager.readUser { [weak self] users in
-//            self?.users = users
-//            print("\([users])")
-//        }
-        
     }
     
     /// Set delegate to hide keyboard
