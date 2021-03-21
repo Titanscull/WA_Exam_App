@@ -43,5 +43,14 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.setupPhotoCell(photo: photos[indexPath.row])
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
+
 }
 
