@@ -26,7 +26,7 @@ class RegistrationViewController: UIViewController {
     private let userAPIManager = UserAPIManager.shared
     
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
-    let regexConditionText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
+    private let regexConditionText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,16 +148,16 @@ class RegistrationViewController: UIViewController {
             return
         }
         
+        if !enteredPassword.isEmpty {
+            validatePasswordAndRegister()
+        }
+        
         if enteredPassword != checkedEnteredPassword {
-            passwordTextField.layer.borderWidth = 2
-            passwordTextField.layer.borderColor = UIColor.red.cgColor
             checkPasswordTextField.layer.borderWidth = 2
             checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
             showAlert(text: "Password is not the same")
             return
         }
-        
-        validatePasswordAndRegister()
         
     }
     
