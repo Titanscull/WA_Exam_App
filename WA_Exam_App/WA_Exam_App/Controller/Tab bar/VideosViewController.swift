@@ -11,6 +11,7 @@ class VideosViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private let apiManager = ApiManager.shared
+    private var videos = [Video]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +20,14 @@ class VideosViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-        apiManager.getVideos { [weak self] (popularVideos) in
+        apiManager.getVideos { [weak self] arrayVideos in
             guard let self = self else { return }
+            
+            self.videos = arrayVideos
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
 }
@@ -28,12 +35,12 @@ class VideosViewController: UIViewController {
 extension VideosViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return videos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as! ContentCell
-        cell.loadVideo()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as! ContentCell
+        cell.setupVideoCell(video: videos[indexPath.row])
         return cell
     }
     

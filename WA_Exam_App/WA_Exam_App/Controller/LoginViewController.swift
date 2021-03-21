@@ -18,9 +18,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var goButton: UIButton!
     
-    // for the test, after it will be deleted 
-    private let apiManager = ApiManager.shared
-    
     /// User parse
     private let userAPIManager = UserAPIManager.shared
     private var users = [User]()
@@ -28,10 +25,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //for the test, after it will be deleted
-        apiManager.getVideos(completion: nil)
-        apiManager.getPhotos(completion: nil)
-
       errorTextLabel.isHidden = true
       
         setFieldCorners()

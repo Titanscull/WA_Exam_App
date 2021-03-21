@@ -25,12 +25,12 @@ class ApiManager {
     
     // formation and processing the request (get, decode json ...)
     
-    func getVideos(completion: ((PopularVideos) -> ())?) {
+    func getVideos(completion: @escaping (([Video]) -> Void)) {
         networkManager.performRequest(url: EndpointAPI.popularVideos.rawValue, method: .get, key: apiKey, success: { (data) in
             
             do {
                 let decodeData = try JSONDecoder().decode(PopularVideos.self, from: data)
-                completion?(decodeData)
+                completion(decodeData.videos)
                 //print(decodeData)
             } catch {
                 print(error.localizedDescription)
@@ -41,12 +41,12 @@ class ApiManager {
         }
     }
     
-    func getPhotos(completion: ((CuratedPhotos) -> ())?) {
+    func getPhotos(completion: @escaping (([Photo]) -> Void)) {
         networkManager.performRequest(url: EndpointAPI.curatedPhotos.rawValue, method: .get, key: apiKey, success: { (data) in
             
             do {
                 let decodeData = try JSONDecoder().decode(CuratedPhotos.self, from: data)
-                completion?(decodeData)
+                completion(decodeData.photos)
                 //print(decodeData)
             } catch {
                 print(error.localizedDescription)

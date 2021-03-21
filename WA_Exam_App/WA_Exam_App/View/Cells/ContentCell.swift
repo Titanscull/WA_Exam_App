@@ -20,9 +20,10 @@ class ContentCell: UICollectionViewCell {
     }
     
     
-    func loadImage() {
-        self.topLabel.text = "test load view"
-        if let url = URL(string: "https://images.pexels.com/photos/2880507/pexels-photo-2880507.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280") {
+    func setupPhotoCell(photo: Photo) {
+
+        self.topLabel.text = photo.photographer
+        if let url = URL(string: photo.src.tiny) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
@@ -35,9 +36,10 @@ class ContentCell: UICollectionViewCell {
         }
     }
     
-    func loadVideo() {
-        self.topLabel.text = "test load view"
-        if let url = URL(string: "https://images.pexels.com/videos/1510090/free-video-1510090.jpg?fit=crop&w=1200&h=630&auto=compress&cs=tinysrgb") {
+    func setupVideoCell(video: Video) {
+        
+        self.topLabel.text = video.user.name
+        if let url = URL(string: video.image) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
