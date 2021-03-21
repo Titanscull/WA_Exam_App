@@ -24,7 +24,9 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private let userAPIManager = UserAPIManager.shared
+    
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
+    let regexConditionText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +92,7 @@ class RegistrationViewController: UIViewController {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
-            showAlert(textAlert: "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght ")
+            showAlert(textAlert: regexConditionText)
             passwordTextField.layer.borderWidth = 2
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             print("Password didnt passed Validation")
