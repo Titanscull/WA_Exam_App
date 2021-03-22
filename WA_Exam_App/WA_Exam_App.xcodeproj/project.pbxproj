@@ -21,7 +21,6 @@
 		EE3F327725FBFCF800DE9758 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327625FBFCF800DE9758 /* User.swift */; };
 		EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */; };
 		EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE57E55525FD1F38001C7B7B /* UserParseManager.swift */; };
-		EE57E55925FD1F8C001C7B7B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE57E55825FD1F8C001C7B7B /* UserManager.swift */; };
 		EE78A60525FE27DF00ECFC9F /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */; };
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
@@ -48,7 +47,6 @@
 		EE3F327625FBFCF800DE9758 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPointProtocol.swift; sourceTree = "<group>"; };
 		EE57E55525FD1F38001C7B7B /* UserParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParseManager.swift; sourceTree = "<group>"; };
-		EE57E55825FD1F8C001C7B7B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */,
 				EE57E55525FD1F38001C7B7B /* UserParseManager.swift */,
 				EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */,
-				EE57E55825FD1F8C001C7B7B /* UserManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				EE3F327725FBFCF800DE9758 /* User.swift in Sources */,
 				23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */,
 				EE78A60525FE27DF00ECFC9F /* UserAPIManager.swift in Sources */,
-				EE57E55925FD1F8C001C7B7B /* UserManager.swift in Sources */,
 				23680CED2603F91E00DBC0FA /* PhotosViewController.swift in Sources */,
 				EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */,
 				23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */,
