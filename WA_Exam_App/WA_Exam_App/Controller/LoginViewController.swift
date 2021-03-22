@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 15
     }
     
-    /// Try's Data from model?
+    /// Check for filled textFields & try's Data from model
     @IBAction func loginButton(_ sender: UIButton) {
         
         let enteredUserName = usernameTextField.text!
@@ -75,14 +75,12 @@ class LoginViewController: UIViewController {
                 passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("User didn't wrote password")
             }
-            
             return
         }
         
         print("Have data to process with")
         
         userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
-        
     }
     
     /// Registration Button
@@ -95,7 +93,7 @@ class LoginViewController: UIViewController {
 /// Keyboard Delegates
 extension LoginViewController: UITextFieldDelegate {
     
-    /// Next textField or hide keyboard if no textFields left
+    /// Next textField,  if no textFields left hides keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textFieldTag: Int = textField.tag
         
@@ -113,7 +111,7 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    /// Hide Error label when typing began
+    /// Hide Error label when typing began & undo highlighting
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
