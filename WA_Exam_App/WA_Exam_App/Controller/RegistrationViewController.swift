@@ -69,8 +69,8 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Alert for errors in input
-    func showAlert(textAlert: String) {
-        let alert  = UIAlertController(title: "Important!", message: textAlert, preferredStyle: .alert)
+    func showAlert(text: String) {
+        let alert  = UIAlertController(title: "Important!", message: text, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
         }
@@ -91,7 +91,7 @@ class RegistrationViewController: UIViewController {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
-            showAlert(textAlert: regexText )
+            showAlert(text: regexText )
             passwordTextField.layer.borderWidth = 2
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             print("Password didnt passed Validation")
@@ -144,7 +144,7 @@ class RegistrationViewController: UIViewController {
                 checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Check password is empty")
             }
-            showAlert(textAlert: "Marked fields should be filled")
+            showAlert(text: "Marked fields should be filled")
             return
         }
         
@@ -153,7 +153,7 @@ class RegistrationViewController: UIViewController {
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             checkPasswordTextField.layer.borderWidth = 2
             checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
-            showAlert(textAlert: "Password is not the same")
+            showAlert(text: "Password is not the same")
             return
         }
         
