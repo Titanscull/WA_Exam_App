@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     
     /// User parse
     private let userAPIManager = UserAPIManager.shared
-    private var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
