@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private let userAPIManager = UserAPIManager.shared
+    
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     private let regexText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
     
@@ -74,7 +75,6 @@ class RegistrationViewController: UIViewController {
         let action = UIAlertAction(title: "OK", style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
         }
-        
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
         return
@@ -95,7 +95,6 @@ class RegistrationViewController: UIViewController {
             passwordTextField.layer.borderWidth = 2
             passwordTextField.layer.borderColor = UIColor.red.cgColor
             print("Password didnt passed Validation")
-            
             return
         } else {
             userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
@@ -106,8 +105,7 @@ class RegistrationViewController: UIViewController {
             print("Password valid - user is safe")
         }
     }
-    
-    
+      
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
@@ -158,8 +156,7 @@ class RegistrationViewController: UIViewController {
         validatePasswordAndRegister()
         
     }
-    
-    
+      
 }
 
 /// Keyboard Delegates
