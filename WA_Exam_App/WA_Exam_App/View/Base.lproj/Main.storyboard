@@ -326,6 +326,37 @@
             </objects>
             <point key="canvasLocation" x="3310" y="428"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="lud-f6-d65">
+            <objects>
+                <viewController title="Detail" id="ixJ-mV-GtP" customClass="DetailViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x9Y-Nh-X9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcd-NQ-qcg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r6t-1o-gLg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rcd-NQ-qcg" firstAttribute="leading" secondItem="r6t-1o-gLg" secondAttribute="leading" id="27j-tC-BJF"/>
+                            <constraint firstItem="r6t-1o-gLg" firstAttribute="bottom" secondItem="rcd-NQ-qcg" secondAttribute="bottom" id="9q3-oi-gS1"/>
+                            <constraint firstItem="rcd-NQ-qcg" firstAttribute="top" secondItem="r6t-1o-gLg" secondAttribute="top" id="BYe-Q2-5x9"/>
+                            <constraint firstItem="r6t-1o-gLg" firstAttribute="trailing" secondItem="rcd-NQ-qcg" secondAttribute="trailing" id="fQC-Mr-Dh5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fhk-Vp-4wF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4246" y="82"/>
+        </scene>
         <!--Photos-->
         <scene sceneID="hON-8c-3cY">
             <objects>

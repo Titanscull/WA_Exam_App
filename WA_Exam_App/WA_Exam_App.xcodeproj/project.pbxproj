@@ -11,6 +11,7 @@
 		23680CE02603F64E00DBC0FA /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23680CDE2603F64E00DBC0FA /* ContentCell.xib */; };
 		23680CED2603F91E00DBC0FA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */; };
 		23680CF02603F92D00DBC0FA /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680CEF2603F92D00DBC0FA /* VideosViewController.swift */; };
+		2392CD7626089D0B00A2EDD2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */; };
 		23A5D34425F5AF3800EF1D40 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34325F5AF3800EF1D40 /* ApiManager.swift */; };
 		23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34625F5AFB600EF1D40 /* Videos.swift */; };
 		23A5D34A25F5AFD300EF1D40 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34925F5AFD300EF1D40 /* Photos.swift */; };
@@ -35,6 +36,7 @@
 		23680CDE2603F64E00DBC0FA /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
 		23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		23680CEF2603F92D00DBC0FA /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		23A5D34325F5AF3800EF1D40 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiManager.swift; path = WA_Exam_App/Model/Services/ApiManager.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34625F5AFB600EF1D40 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = SOURCE_ROOT; };
 		23A5D34925F5AFD300EF1D40 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = SOURCE_ROOT; };
@@ -120,6 +122,7 @@
 				23680CEA2603F88800DBC0FA /* Tab bar */,
 				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
 				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
+				2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
+				2392CD7626089D0B00A2EDD2 /* DetailViewController.swift in Sources */,
 				23680CDF2603F64E00DBC0FA /* ContentCell.swift in Sources */,
 				EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
