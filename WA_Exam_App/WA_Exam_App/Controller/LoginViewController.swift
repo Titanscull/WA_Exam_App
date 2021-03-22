@@ -11,29 +11,20 @@ import Parse
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var errorTextLabel: UILabel!
-    
     @IBOutlet weak var goButton: UIButton!
     
     /// User parse
     private let userAPIManager = UserAPIManager.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      errorTextLabel.isHidden = true
-      
+        errorTextLabel.isHidden = true
+        
         setFieldCorners()
         setKeyboardDelegates()
-        
-        /// Read users
-//        userAPIManager.readUser { [weak self] users in
-//            self?.users = users
-//            print("\([users])")
-//        }
         
     }
     
@@ -97,6 +88,7 @@ class LoginViewController: UIViewController {
     /// Registration Button
     @IBAction func registrationButton(_ sender: UIButton) {
     }
+    
 }
 
 
