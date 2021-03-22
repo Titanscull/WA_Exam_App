@@ -18,21 +18,23 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var goButton: UIButton!
     
-    let apiMan = ApiManager()
-    
     /// User parse
     private let userAPIManager = UserAPIManager.shared
     private var users = [User]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiMan.getPopularVideos(completion: nil)
-        
-        errorTextLabel.isHidden = true
-        
+      errorTextLabel.isHidden = true
+      
         setFieldCorners()
         setKeyboardDelegates()
+        
+        /// Read users
+//        userAPIManager.readUser { [weak self] users in
+//            self?.users = users
+//            print("\([users])")
+//        }
         
     }
     

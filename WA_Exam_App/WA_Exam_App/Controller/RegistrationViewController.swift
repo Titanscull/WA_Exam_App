@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private let userAPIManager = UserAPIManager.shared
-    
+
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     private let regexConditionText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
     

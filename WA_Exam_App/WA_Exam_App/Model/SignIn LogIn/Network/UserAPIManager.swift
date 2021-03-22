@@ -8,7 +8,7 @@
 import Foundation
 
 class UserAPIManager: UserEndPointProtocol {
-    
+   
     static let shared = UserAPIManager()
     
     private init() { }
