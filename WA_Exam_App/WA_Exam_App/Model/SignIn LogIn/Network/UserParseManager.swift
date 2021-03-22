@@ -40,7 +40,21 @@ class UserParseManager: UserEndPointProtocol {
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-        
+//        // MARK: Is not working properly yet
+//        let query = PFUser.query()
+//        query!.findObjectsInBackground(block: { parseObjects, error in
+//            if let error = error {
+//                print("Eroor", error.localizedDescription)
+//                return
+//            }
+//            guard let parseObjects = parseObjects else {
+//                print("User data read is empty")
+//                return
+//            }
+//            let resultArray = parseObjects.compactMap(User.init)
+//            completion(resultArray)
+//            print(resultArray)
+//        })
     }
     
     func deleteUser(user: User) {

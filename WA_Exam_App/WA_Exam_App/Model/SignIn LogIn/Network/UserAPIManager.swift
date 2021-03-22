@@ -12,7 +12,7 @@ class UserAPIManager: UserEndPointProtocol {
     static let shared = UserAPIManager()
     
     private init() { }
-    
+   
     private let session: UserEndPointProtocol = UserParseManager()
     
     func signIn(username: String, password: String) {
