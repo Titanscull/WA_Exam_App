@@ -149,8 +149,6 @@ class RegistrationViewController: UIViewController {
         }
         
         if enteredPassword != checkedEnteredPassword {
-            passwordTextField.layer.borderWidth = 2
-            passwordTextField.layer.borderColor = UIColor.red.cgColor
             checkPasswordTextField.layer.borderWidth = 2
             checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
             showAlert(text: "Password is not the same")
