@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -137,7 +138,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-6S-trC">
                                                 <rect key="frame" x="0.0" y="0.0" width="267" height="170.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cannibal" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-wt-vGP">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cannibal" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-wt-vGP">
                                                         <rect key="frame" x="8" y="8" width="251" height="154.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="154.5" id="ZQx-n2-hUL"/>
@@ -145,7 +146,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                                 <constraints>
                                                     <constraint firstItem="YwD-wt-vGP" firstAttribute="top" secondItem="LOB-6S-trC" secondAttribute="top" constant="8" id="079-tp-Usc"/>
                                                     <constraint firstAttribute="trailing" secondItem="YwD-wt-vGP" secondAttribute="trailing" constant="8" id="2To-cb-KXC"/>
@@ -199,7 +200,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="8bG-1S-TMp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Check Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D9m-MM-gKI">
                                                 <rect key="frame" x="0.0" y="148" width="345" height="30"/>
@@ -208,7 +209,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="HmQ-qc-hFx"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -278,6 +279,149 @@
             </objects>
             <point key="canvasLocation" x="1486" y="84"/>
         </scene>
+        <!--Videos-->
+        <scene sceneID="Rad-gc-P5Y">
+            <objects>
+                <viewController title="Videos" id="FVk-BI-mKn" customClass="VideosViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9GU-zR-mq5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H1D-gK-1dh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2BX-dX-YFI">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DG8-8n-Rgq">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AOi-fj-49p">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ch2-a0-zOa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ch2-a0-zOa" firstAttribute="bottom" secondItem="H1D-gK-1dh" secondAttribute="bottom" id="46Z-MC-WJz"/>
+                            <constraint firstItem="H1D-gK-1dh" firstAttribute="top" secondItem="ch2-a0-zOa" secondAttribute="top" id="KrX-7Z-1F6"/>
+                            <constraint firstItem="H1D-gK-1dh" firstAttribute="leading" secondItem="ch2-a0-zOa" secondAttribute="leading" id="Rf2-O4-nL4"/>
+                            <constraint firstItem="ch2-a0-zOa" firstAttribute="trailing" secondItem="H1D-gK-1dh" secondAttribute="trailing" id="zqX-3F-NFV"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Videos" image="video" catalog="system" id="xnG-et-VD1"/>
+                    <connections>
+                        <outlet property="collectionView" destination="H1D-gK-1dh" id="cqe-sF-E0d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efG-Zp-mmn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3310" y="428"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="lud-f6-d65">
+            <objects>
+                <viewController title="Detail" id="ixJ-mV-GtP" customClass="DetailViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x9Y-Nh-X9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcd-NQ-qcg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r6t-1o-gLg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rcd-NQ-qcg" firstAttribute="leading" secondItem="r6t-1o-gLg" secondAttribute="leading" id="27j-tC-BJF"/>
+                            <constraint firstItem="r6t-1o-gLg" firstAttribute="bottom" secondItem="rcd-NQ-qcg" secondAttribute="bottom" id="9q3-oi-gS1"/>
+                            <constraint firstItem="rcd-NQ-qcg" firstAttribute="top" secondItem="r6t-1o-gLg" secondAttribute="top" id="BYe-Q2-5x9"/>
+                            <constraint firstItem="r6t-1o-gLg" firstAttribute="trailing" secondItem="rcd-NQ-qcg" secondAttribute="trailing" id="fQC-Mr-Dh5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fhk-Vp-4wF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4246" y="82"/>
+        </scene>
+        <!--Photos-->
+        <scene sceneID="hON-8c-3cY">
+            <objects>
+                <viewController title="Photos" id="P32-2A-Zet" customClass="PhotosViewController" customModule="WA_Exam_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ueq-M0-vrB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-gz-a9p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5MG-IO-kzJ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iQs-wW-E9e">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="95g-9r-Auz">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KA1-6h-UvK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d9i-gz-a9p" firstAttribute="top" secondItem="KA1-6h-UvK" secondAttribute="top" id="M0w-ll-ZUD"/>
+                            <constraint firstItem="KA1-6h-UvK" firstAttribute="bottom" secondItem="d9i-gz-a9p" secondAttribute="bottom" id="MKw-ik-rwz"/>
+                            <constraint firstItem="d9i-gz-a9p" firstAttribute="leading" secondItem="KA1-6h-UvK" secondAttribute="leading" id="TjI-6I-juN"/>
+                            <constraint firstItem="KA1-6h-UvK" firstAttribute="trailing" secondItem="d9i-gz-a9p" secondAttribute="trailing" id="Vmb-iG-vyF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Photos" image="photo" catalog="system" id="fdN-6R-rVr"/>
+                    <connections>
+                        <outlet property="collectionView" destination="d9i-gz-a9p" id="4BR-DO-TxC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZzC-az-cSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309.5999999999999" y="-222.63868065967017"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="DVX-qS-rQS">
+            <objects>
+                <tabBarController id="iKi-9r-Xu3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oPs-RA-gix">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="P32-2A-Zet" kind="relationship" relationship="viewControllers" id="Ifr-Oa-vgK"/>
+                        <segue destination="FVk-BI-mKn" kind="relationship" relationship="viewControllers" id="MGO-SF-1CQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVj-mi-lzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2390" y="83"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2mt-xd-24V">
             <objects>
@@ -306,11 +450,19 @@
     </scenes>
     <resources>
         <image name="Cannibal" width="696" height="804"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="video" catalog="system" width="128" height="83"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>

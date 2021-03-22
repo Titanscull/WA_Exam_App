@@ -15,8 +15,10 @@ enum MethodAPI: String {
 class NetworkManager {
     
     // processing the request result
+    static let shared = NetworkManager()
+    private init() { }
     
-    func performRequest(url: String, method: MethodAPI, key: String, params: [String: Any], success: ((Data) -> ())?, failure: ((Error?) -> ())?) {
+    func performRequest(url: String, method: MethodAPI, key: String, success: ((Data) -> ())?, failure: ((Error?) -> ())?) {
         
         guard let url = URL(string: url) else { failure?(nil); return }
        
