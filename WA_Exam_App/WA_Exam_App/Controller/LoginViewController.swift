@@ -9,7 +9,7 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -45,12 +45,11 @@ class LoginViewController: UIViewController {
     }
     
     /// Alert for errors in input
-    func showAlert(textAlert: String) {
-        let alert  = UIAlertController(title: "Important!", message: textAlert, preferredStyle: .alert)
+    func showAlert(text: String) {
+        let alert  = UIAlertController(title: "Important!", message: text, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
         }
-        
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
         return
@@ -72,7 +71,7 @@ class LoginViewController: UIViewController {
         
         if enteredUserName.isEmpty || enteredPassword.isEmpty {
             if enteredPassword.isEmpty && enteredUserName.isEmpty{
-            showAlert(textAlert: "First fill all fields")
+                showAlert(text: "First fill all fields")
             } else if enteredUserName.isEmpty {
                 errorTextLabel.isHidden = false
                 errorTextLabel.text = "Write youre User Name, please"
@@ -104,7 +103,7 @@ class LoginViewController: UIViewController {
 
 /// Keyboard Delegates
 extension LoginViewController: UITextFieldDelegate {
-
+    
     /// Next textField or hide keyboard if no textFields left
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textFieldTag: Int = textField.tag
@@ -117,14 +116,14 @@ extension LoginViewController: UITextFieldDelegate {
         
         return true
     }
-
+    
     /// Tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     /// Hide Error label when typing began
-     func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
         textField.layer.borderWidth = 0
