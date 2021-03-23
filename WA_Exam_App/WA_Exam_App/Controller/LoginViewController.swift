@@ -42,7 +42,6 @@ class LoginViewController: UIViewController {
     func logIn() {
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { [self] (user, error) in
             if user != nil {
-//                userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
                 self.loadMainView()
                 print("Succes to LogIn")
                 userAPIManager.retrieveUser()
