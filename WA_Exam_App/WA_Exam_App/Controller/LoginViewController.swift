@@ -18,14 +18,49 @@ class LoginViewController: UIViewController {
     /// User parse
     private let userAPIManager = UserAPIManager.shared
     
+    override func viewWillAppear(_ animated: Bool) {
+//        userAPIManager.logout()
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            loadMainView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userAPIManager.retrieveUser()
         
         errorTextLabel.isHidden = true
         
         setFieldCorners()
         setKeyboardDelegates()
         
+    }
+
+    /// Login func that will process with data and present MainView as TaBarView
+    func logIn() {
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { [self] (user, error) in
+            if user != nil {
+//                userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
+                self.loadMainView()
+                print("Succes to LogIn")
+                userAPIManager.retrieveUser()
+            }else{
+                if let descrip = error?.localizedDescription{
+                    print(descrip)
+                    showAlert(text: "Invalid Username or Password")
+                }
+            }
+        }
+    }
+
+    /// Presentation of MainView
+    func loadMainView(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "MainView")
+        loggedInViewController.modalPresentationStyle = .fullScreen
+        self.present(loggedInViewController, animated: true, completion: nil)
     }
     
     /// Set delegate to hide keyboard
@@ -80,7 +115,8 @@ class LoginViewController: UIViewController {
         
         print("Have data to process with")
         
-        userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
+        logIn()
+        
     }
     
     /// Registration Button
