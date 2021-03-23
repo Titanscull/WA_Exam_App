@@ -428,7 +428,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2mt-xd-24V">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fgd-in-cMe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginView" automaticallyAdjustsScrollViewInsets="NO" id="Fgd-in-cMe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Xip-Lw-KrJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
