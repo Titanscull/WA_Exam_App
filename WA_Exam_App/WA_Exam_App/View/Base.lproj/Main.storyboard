@@ -409,7 +409,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="DVX-qS-rQS">
             <objects>
-                <tabBarController id="iKi-9r-Xu3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainView" id="iKi-9r-Xu3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zVJ-df-vkC"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oPs-RA-gix">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -427,7 +428,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2mt-xd-24V">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fgd-in-cMe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginView" automaticallyAdjustsScrollViewInsets="NO" id="Fgd-in-cMe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Xip-Lw-KrJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>

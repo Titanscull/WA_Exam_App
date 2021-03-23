@@ -15,6 +15,15 @@ class UserAPIManager: UserEndPointProtocol {
    
     private let session: UserEndPointProtocol = UserParseManager()
     
+    func logout() {
+        session.logout()
+    }
+    
+    func retrieveUser() {
+        session.retrieveUser()
+    }
+    
+    
     func signIn(username: String, password: String) {
         session.signIn(username: username, password: password)
     }

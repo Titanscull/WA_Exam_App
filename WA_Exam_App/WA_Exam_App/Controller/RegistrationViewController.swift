@@ -100,6 +100,7 @@ class RegistrationViewController: UIViewController {
             userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
+                    self.userAPIManager.logout()
                 }
             }
             print("Password valid - user is safe")

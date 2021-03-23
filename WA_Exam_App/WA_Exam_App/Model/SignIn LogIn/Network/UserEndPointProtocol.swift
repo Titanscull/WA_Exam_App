@@ -14,7 +14,9 @@ protocol UserEndPointProtocol: class {
     func readUser(completion: @escaping (([User]) -> Void))
     func deleteUser(user: User)
     func updateUser(user: User)
+    func retrieveUser()
     func signIn(username: String, password: String)
+    func logout()
     
     
     

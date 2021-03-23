@@ -10,6 +10,29 @@ import Parse
 
 class UserParseManager: UserEndPointProtocol {
     
+    
+    func logout() {
+        PFUser.logOutInBackground { (error: Error?) in
+            if (error == nil){
+                print("Succesfully loged out")
+            }else{
+                if let error = error?.localizedDescription{
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func retrieveUser() {
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            print("\(String(describing: currentUser))")
+        } else {
+            print("No user")
+        }
+    }
+    
+    
     func signIn(username: String, password: String) {
         PFUser.logInWithUsername(inBackground: username , password: password) { user, error in
             if user != nil {
@@ -40,21 +63,7 @@ class UserParseManager: UserEndPointProtocol {
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-//        // MARK: Is not working properly yet
-//        let query = PFUser.query()
-//        query!.findObjectsInBackground(block: { parseObjects, error in
-//            if let error = error {
-//                print("Eroor", error.localizedDescription)
-//                return
-//            }
-//            guard let parseObjects = parseObjects else {
-//                print("User data read is empty")
-//                return
-//            }
-//            let resultArray = parseObjects.compactMap(User.init)
-//            completion(resultArray)
-//            print(resultArray)
-//        })
+       
     }
     
     func deleteUser(user: User) {
