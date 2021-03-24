@@ -29,12 +29,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
-        guard let window = self.window else {
-            return
-        }
+        guard let window = self.window else {return}
         
-        // change the root view controller to your specific view controller
+        // Change the root view controller to your specific view controller
         window.rootViewController = vc
+        
+        // Adding some root animation animation
+        UIView.transition(with: window,
+                          duration: 0.5,
+                          options: [.transitionCurlUp],
+                          animations: nil,
+                          completion: nil)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -10,6 +10,7 @@ import Parse
 
 
 protocol UserEndPointProtocol: class {
+    
     func createUser(name: String, surname: String, username: String, password: String, completion: @escaping ((User) -> Void))
     func readUser(completion: @escaping (([User]) -> Void))
     func deleteUser(user: User)
@@ -17,7 +18,5 @@ protocol UserEndPointProtocol: class {
     func retrieveUser()
     func signIn(username: String, password: String)
     func logout()
-    
-    
     
 }

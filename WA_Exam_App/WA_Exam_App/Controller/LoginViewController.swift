@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorTextLabel: UILabel!
     @IBOutlet weak var goButton: UIButton!
     
-    /// User parse
+    /// User parse manager
     private let userAPIManager = UserAPIManager.shared
     
     override func viewDidLoad() {

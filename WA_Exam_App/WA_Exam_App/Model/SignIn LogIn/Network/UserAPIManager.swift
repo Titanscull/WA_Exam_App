@@ -23,7 +23,6 @@ class UserAPIManager: UserEndPointProtocol {
         session.retrieveUser()
     }
     
-    
     func signIn(username: String, password: String) {
         session.signIn(username: username, password: password)
     }
