@@ -106,7 +106,7 @@ class RegistrationViewController: UIViewController {
             print("Password valid - user is safe")
         }
     }
-      
+    
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
@@ -157,7 +157,7 @@ class RegistrationViewController: UIViewController {
         validatePasswordAndRegister()
         
     }
-      
+    
 }
 
 /// Keyboard Delegates

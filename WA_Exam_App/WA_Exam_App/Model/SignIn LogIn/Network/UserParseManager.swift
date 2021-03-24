@@ -10,39 +10,6 @@ import Parse
 
 class UserParseManager: UserEndPointProtocol {
     
-    
-    func logout() {
-        PFUser.logOutInBackground { (error: Error?) in
-            if (error == nil){
-                print("Succesfully loged out")
-            }else{
-                if let error = error?.localizedDescription{
-                    print(error)
-                }
-            }
-        }
-    }
-    
-    func retrieveUser() {
-        let currentUser = PFUser.current()
-        if currentUser != nil {
-            print("\(String(describing: currentUser))")
-        } else {
-            print("No user")
-        }
-    }
-    
-    
-    func signIn(username: String, password: String) {
-        PFUser.logInWithUsername(inBackground: username , password: password) { user, error in
-            if user != nil {
-                print("Balls eye, user data is correct")
-            } else {
-                print("Failed to process with data - ", error!.localizedDescription)
-            }
-        }
-    }
-    
     func createUser(name: String, surname: String, username: String, password: String, completion: @escaping ((User) -> Void)) {
         let parseObject = PFUser()
         
@@ -62,8 +29,48 @@ class UserParseManager: UserEndPointProtocol {
         }
     }
     
+    func logout() {
+        PFUser.logOutInBackground { (error: Error?) in
+            if (error == nil){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginNavController = storyboard.instantiateViewController(identifier: "LoginView")
+                
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+                print("Succesfully loged out")
+                print("From now root view controller is NavigationViewController")
+            }else{
+                if let error = error?.localizedDescription{
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func signIn(username: String, password: String) {
+        PFUser.logInWithUsername(inBackground: username , password: password) { user, error in
+            if user != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                print("User succesfully loged in")
+                print("From now root view controller is TabBarViewController")
+            } else {
+                print("Failed to process with data - ", error!.localizedDescription)
+            }
+        }
+    }
+    
+    func retrieveUser() {
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            print("\(String(describing: currentUser))")
+        } else {
+            print("No user")
+        }
+    }
+    
     func readUser(completion: @escaping (([User]) -> Void)) {
-       
+        
     }
     
     func deleteUser(user: User) {
