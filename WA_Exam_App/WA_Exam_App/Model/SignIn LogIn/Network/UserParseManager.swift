@@ -36,7 +36,10 @@ class UserParseManager: UserEndPointProtocol {
     func signIn(username: String, password: String) {
         PFUser.logInWithUsername(inBackground: username , password: password) { user, error in
             if user != nil {
-                print("Balls eye, user data is correct")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
+                
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             } else {
                 print("Failed to process with data - ", error!.localizedDescription)
             }
@@ -63,7 +66,7 @@ class UserParseManager: UserEndPointProtocol {
     }
     
     func readUser(completion: @escaping (([User]) -> Void)) {
-       
+        
     }
     
     func deleteUser(user: User) {
