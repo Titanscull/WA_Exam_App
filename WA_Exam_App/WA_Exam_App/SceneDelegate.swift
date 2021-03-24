@@ -21,10 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
             window?.rootViewController = mainTabBarController
+            print("User is in - root Main view TabBarController")
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginNavController = storyboard.instantiateViewController(identifier: "LoginView")
             window?.rootViewController = loginNavController
+            print("User isn't loged in - root NavigationViewController")
         }
     }
     
@@ -36,8 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Adding some root animation animation
         UIView.transition(with: window,
-                          duration: 0.5,
-                          options: [.transitionCurlUp],
+                          duration: 1,
+                          options: [.transitionCrossDissolve],
                           animations: nil,
                           completion: nil)
     }

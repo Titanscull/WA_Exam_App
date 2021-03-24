@@ -37,20 +37,12 @@ class UserParseManager: UserEndPointProtocol {
                 
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
                 print("Succesfully loged out")
+                print("From now root view controller is NavigationViewController")
             }else{
                 if let error = error?.localizedDescription{
                     print(error)
                 }
             }
-        }
-    }
-    
-    func retrieveUser() {
-        let currentUser = PFUser.current()
-        if currentUser != nil {
-            print("\(String(describing: currentUser))")
-        } else {
-            print("No user")
         }
     }
     
@@ -61,9 +53,19 @@ class UserParseManager: UserEndPointProtocol {
                 let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 print("User succesfully loged in")
+                print("From now root view controller is TabBarViewController")
             } else {
                 print("Failed to process with data - ", error!.localizedDescription)
             }
+        }
+    }
+    
+    func retrieveUser() {
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            print("\(String(describing: currentUser))")
+        } else {
+            print("No user")
         }
     }
     

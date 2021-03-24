@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        userAPIManager.logout()
+        
         userAPIManager.retrieveUser()
         
         errorTextLabel.isHidden = true
@@ -28,12 +30,6 @@ class LoginViewController: UIViewController {
         setFieldCorners()
         setKeyboardDelegates()
         
-    }
-    
-    /// Set delegate to hide keyboard
-    func setKeyboardDelegates() {
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
     }
     
     /// Alert for errors in input
@@ -45,6 +41,12 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
         return
+    }
+    
+    /// Set delegate to hide keyboard
+    func setKeyboardDelegates() {
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     /// Makes rounded corners for textField
