@@ -17,11 +17,11 @@
 		23A5D34A25F5AFD300EF1D40 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34925F5AFD300EF1D40 /* Photos.swift */; };
 		23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34D25F5B46300EF1D40 /* NetworkManager.swift */; };
 		61F80991F3FFE4033AFA2B02 /* Pods_WA_Exam_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6648EB20149A2F60F2148FF /* Pods_WA_Exam_App.framework */; };
+		EE118097260A975F00771BF3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE118096260A975F00771BF3 /* AppCoordinator.swift */; };
 		EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */; };
 		EE3F327725FBFCF800DE9758 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327625FBFCF800DE9758 /* User.swift */; };
 		EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */; };
 		EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE57E55525FD1F38001C7B7B /* UserParseManager.swift */; };
-		EE57E55925FD1F8C001C7B7B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE57E55825FD1F8C001C7B7B /* UserManager.swift */; };
 		EE78A60525FE27DF00ECFC9F /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */; };
 		EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8825F3B54A00E12429 /* AppDelegate.swift */; };
 		EE790A8B25F3B54A00E12429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE790A8A25F3B54A00E12429 /* SceneDelegate.swift */; };
@@ -44,11 +44,11 @@
 		71394657513EC8542F4A1DBE /* Pods-WA_Exam_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WA_Exam_App.debug.xcconfig"; path = "Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App.debug.xcconfig"; sourceTree = "<group>"; };
 		D6648EB20149A2F60F2148FF /* Pods_WA_Exam_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WA_Exam_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3823E23B211E411F3432A3E /* Pods-WA_Exam_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WA_Exam_App.release.xcconfig"; path = "Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App.release.xcconfig"; sourceTree = "<group>"; };
+		EE118096260A975F00771BF3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EE3F327625FBFCF800DE9758 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPointProtocol.swift; sourceTree = "<group>"; };
 		EE57E55525FD1F38001C7B7B /* UserParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParseManager.swift; sourceTree = "<group>"; };
-		EE57E55825FD1F8C001C7B7B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
 		EE790A8525F3B54A00E12429 /* WA_Exam_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WA_Exam_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE790A8825F3B54A00E12429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,10 +119,10 @@
 		EE0B447525F3EF0500E18886 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				23680CEA2603F88800DBC0FA /* Tab bar */,
-				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
-				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
 				2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */,
+				EEBA7500260E0107001BA50B /* LoginController */,
+				EEBA7501260E0121001BA50B /* RegistrationController */,
+				23680CEA2603F88800DBC0FA /* Tab bar */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +152,7 @@
 			children = (
 				EE3F327D25FC01E000DE9758 /* Network */,
 				EE3F327625FBFCF800DE9758 /* User.swift */,
+				EE118096260A975F00771BF3 /* AppCoordinator.swift */,
 			);
 			path = "SignIn LogIn";
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 				EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */,
 				EE57E55525FD1F38001C7B7B /* UserParseManager.swift */,
 				EE78A60425FE27DF00ECFC9F /* UserAPIManager.swift */,
-				EE57E55825FD1F8C001C7B7B /* UserManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -198,6 +198,22 @@
 				EE790A9625F3B54B00E12429 /* Info.plist */,
 			);
 			path = WA_Exam_App;
+			sourceTree = "<group>";
+		};
+		EEBA7500260E0107001BA50B /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
+		EEBA7501260E0121001BA50B /* RegistrationController */ = {
+			isa = PBXGroup;
+			children = (
+				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
+			);
+			path = RegistrationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +333,7 @@
 			files = (
 				EE790A8D25F3B54A00E12429 /* LoginViewController.swift in Sources */,
 				2392CD7626089D0B00A2EDD2 /* DetailViewController.swift in Sources */,
+				EE118097260A975F00771BF3 /* AppCoordinator.swift in Sources */,
 				23680CDF2603F64E00DBC0FA /* ContentCell.swift in Sources */,
 				EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
@@ -324,7 +341,6 @@
 				EE3F327725FBFCF800DE9758 /* User.swift in Sources */,
 				23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */,
 				EE78A60525FE27DF00ECFC9F /* UserAPIManager.swift in Sources */,
-				EE57E55925FD1F8C001C7B7B /* UserManager.swift in Sources */,
 				23680CED2603F91E00DBC0FA /* PhotosViewController.swift in Sources */,
 				EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */,
 				23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */,

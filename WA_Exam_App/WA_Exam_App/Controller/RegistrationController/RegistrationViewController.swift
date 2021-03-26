@@ -13,7 +13,6 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var underImageView: UIView!
     
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -47,26 +46,19 @@ class RegistrationViewController: UIViewController {
     
     /// Makes rounded corners for textField
     func setFieldCorners() {
-        self.firstNameTextField.layer.masksToBounds = true
-        self.lastNameTextField.layer.masksToBounds = true
-        self.userNameTextField.layer.masksToBounds = true
-        self.passwordTextField.layer.masksToBounds = true
-        self.checkPasswordTextField.layer.masksToBounds = true
-        
-        firstNameTextField.layer.cornerRadius = 15
-        lastNameTextField.layer.cornerRadius = 15
-        userNameTextField.layer.cornerRadius = 15
-        passwordTextField.layer.cornerRadius = 15
-        checkPasswordTextField.layer.cornerRadius = 15
+        [firstNameTextField, lastNameTextField, userNameTextField, passwordTextField, checkPasswordTextField].forEach {
+            $0?.layer.masksToBounds = true
+            $0?.layer.cornerRadius = 15
+            $0?.layer.borderWidth = 0.5
+            $0?.layer.borderColor = UIColor.black.cgColor
+        }
     }
     
     /// Set delegate to hide keyboard
     func setRegTextFieldDelegates() {
-        firstNameTextField.delegate = self
-        lastNameTextField.delegate = self
-        userNameTextField.delegate = self
-        passwordTextField.delegate = self
-        checkPasswordTextField.delegate = self
+        [firstNameTextField, lastNameTextField, userNameTextField, passwordTextField, checkPasswordTextField].forEach {
+            $0?.delegate = self
+        }
     }
     
     /// Alert for errors in input
@@ -91,21 +83,21 @@ class RegistrationViewController: UIViewController {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
-            showAlert(text: regexText )
-            passwordTextField.layer.borderWidth = 2
-            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            showAlert(text: regexText)
+            setRedBorder(passwordTextField)
             print("Password didnt passed Validation")
             return
         } else {
             userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
+                    self.userAPIManager.logout()
                 }
             }
             print("Password valid - user is safe")
         }
     }
-      
+    
     /// Saves correct data to model
     @IBAction func saveDataButton(_ sender: UIButton) {
         
@@ -118,45 +110,40 @@ class RegistrationViewController: UIViewController {
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty || enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
-                firstNameTextField.layer.borderWidth = 2
-                firstNameTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(firstNameTextField)
                 print("Name field is empty")
             }
             if enteredSurname.isEmpty {
-                lastNameTextField.layer.borderWidth = 2
-                lastNameTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(lastNameTextField)
                 print("Surname field is empty")
             }
             if enteredUserName.isEmpty {
-                userNameTextField.layer.borderWidth = 2
-                userNameTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(userNameTextField)
                 print("Username field is empty")
             }
             if enteredPassword.isEmpty {
-                passwordTextField.layer.borderWidth = 2
+                setRedBorder(passwordTextField)
                 passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Password is empty")
             }
             if checkedEnteredPassword.isEmpty {
-                checkPasswordTextField.layer.borderWidth = 2
-                checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(checkPasswordTextField)
                 print("Check password is empty")
             }
             showAlert(text: "Marked fields should be filled")
             return
         }
         
+        validatePasswordAndRegister()
+        
         if enteredPassword != checkedEnteredPassword {
-            checkPasswordTextField.layer.borderWidth = 2
-            checkPasswordTextField.layer.borderColor = UIColor.red.cgColor
+            setRedBorder(checkPasswordTextField)
             showAlert(text: "Password is not the same")
             return
         }
         
-        validatePasswordAndRegister()
-        
     }
-      
+    
 }
 
 /// Keyboard Delegates
@@ -164,7 +151,7 @@ extension RegistrationViewController: UITextFieldDelegate {
     
     /// Next textField if next button pressed or hides keyboard if no fields left
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldTag: Int = textField.tag
+        let textFieldTag = textField.tag
         
         if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
             nextTextField.becomeFirstResponder()
@@ -177,14 +164,19 @@ extension RegistrationViewController: UITextFieldDelegate {
     
     /// Hide Error label when typing begun
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 0
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
     }
     
     /// Tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    func setRedBorder(_ textField: UITextField) {
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+    
 }
 

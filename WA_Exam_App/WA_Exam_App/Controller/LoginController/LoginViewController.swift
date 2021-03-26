@@ -11,37 +11,39 @@ import Parse
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var errorTextLabel: UILabel!
-    
     @IBOutlet weak var goButton: UIButton!
     
-    /// User parse
+    /// User parse manager
     private let userAPIManager = UserAPIManager.shared
-    private var users = [User]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      errorTextLabel.isHidden = true
-      
-        setFieldCorners()
+        //        userAPIManager.logout()
+        
+        userAPIManager.retrieveUser()
+        
+        errorTextLabel.isHidden = true
+        
         setKeyboardDelegates()
         
-        /// Read users
-//        userAPIManager.readUser { [weak self] users in
-//            self?.users = users
-//            print("\([users])")
-//        }
+        setTextFieldView()
         
     }
     
-    /// Set delegate to hide keyboard
+    /// Set delegate's for keyboard
     func setKeyboardDelegates() {
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
+        [usernameTextField, passwordTextField].forEach {
+            $0?.delegate = self
+        }
+    }
+    
+    /// Set textField view
+    func setTextFieldView() {
+        setFieldCorners(usernameTextField)
+        setFieldCorners(passwordTextField)
     }
     
     /// Alert for errors in input
@@ -55,15 +57,7 @@ class LoginViewController: UIViewController {
         return
     }
     
-    /// Makes rounded corners for textField
-    func setFieldCorners() {
-        self.usernameTextField.layer.masksToBounds = true
-        self.passwordTextField.layer.masksToBounds = true
-        usernameTextField.layer.cornerRadius = 15
-        passwordTextField.layer.cornerRadius = 15
-    }
-    
-    /// Try's Data from model?
+    /// Check for filled textFields & try's Data from model
     @IBAction func loginButton(_ sender: UIButton) {
         
         let enteredUserName = usernameTextField.text!
@@ -75,38 +69,36 @@ class LoginViewController: UIViewController {
             } else if enteredUserName.isEmpty {
                 errorTextLabel.isHidden = false
                 errorTextLabel.text = "Write youre User Name, please"
-                usernameTextField.layer.borderWidth = 2
-                usernameTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(usernameTextField)
                 print("User didn't wrote his Username")
             } else if enteredPassword.isEmpty {
                 errorTextLabel.isHidden = false
                 errorTextLabel.text = "Password for you're User Name is empty"
-                passwordTextField.layer.borderWidth = 2
-                passwordTextField.layer.borderColor = UIColor.red.cgColor
+                setRedBorder(passwordTextField)
                 print("User didn't wrote password")
             }
-            
             return
         }
         
         print("Have data to process with")
         
-        userAPIManager.signIn(username: usernameTextField.text!, password: passwordTextField.text!)
+        userAPIManager.signIn(username: enteredUserName, password: enteredPassword)
         
     }
     
     /// Registration Button
     @IBAction func registrationButton(_ sender: UIButton) {
     }
+    
 }
 
 
 /// Keyboard Delegates
 extension LoginViewController: UITextFieldDelegate {
     
-    /// Next textField or hide keyboard if no textFields left
+    /// Next textField,  if no textFields left hides keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldTag: Int = textField.tag
+        let textFieldTag = textField.tag
         
         if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
             nextTextField.becomeFirstResponder()
@@ -122,14 +114,27 @@ extension LoginViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    /// Hide Error label when typing began
+    /// Hide Error label when typing began & undo highlighting
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
-        textField.layer.borderWidth = 0
-        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
     }
+    
+    /// Makes rounded corners for textField
+    func setFieldCorners(_ textField: UITextField) {
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 15
+    }
+    
+    func setRedBorder(_ textField: UITextField) {
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+    
 }
-
 
 
