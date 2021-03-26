@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var detailView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        detailView.loadFileURL(URL(fileURLWithPath: "https://www.pexels.com/video/2499611/"), allowingReadAccessTo: URL(fileURLWithPath: "https://www.pexels.com/video/2499611/"))
     }
 }
