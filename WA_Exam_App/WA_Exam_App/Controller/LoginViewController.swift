@@ -67,12 +67,14 @@ class LoginViewController: UIViewController {
             if enteredPassword.isEmpty && enteredUserName.isEmpty{
                 showAlert(text: "First fill all fields")
             } else if enteredUserName.isEmpty {
+                errorTextLabel.isHidden = false
                 errorTextLabel.text = "Write youre User Name, please"
-                usernameTextField.setInputBoarder(usernameTextField)
+                usernameTextField.setInputBorder(usernameTextField)
                 print("User didn't wrote his Username")
             } else if enteredPassword.isEmpty {
+                errorTextLabel.isHidden = false
                 errorTextLabel.text = "Password for you're User Name is empty"
-                passwordTextField.setInputBoarder(passwordTextField)
+                passwordTextField.setInputBorder(passwordTextField)
                 print("User didn't wrote password")
             }
             return
@@ -116,22 +118,23 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorTextLabel.isHidden = true
         errorTextLabel.text = ""
-        textField.layer.borderWidth = 0
-        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
     }
     
     /// Makes rounded corners for textField
     func setFieldCorners(_ textField: UITextField) {
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 15
     }
 }
 
 extension UITextField {
-    func setInputBoarder(_ textField: UITextField) {
-        textField.isHidden = false
-        textField.layer.borderWidth = 2
-        textField.layer.borderColor = UIColor.red.cgColor
+    func setInputBorder(_ textField: UITextField) {
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.red.cgColor
     }
 }
 
