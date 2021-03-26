@@ -151,7 +151,7 @@ extension RegistrationViewController: UITextFieldDelegate {
     
     /// Next textField if next button pressed or hides keyboard if no fields left
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldTag: Int = textField.tag
+        let textFieldTag = textField.tag
         
         if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
             nextTextField.becomeFirstResponder()

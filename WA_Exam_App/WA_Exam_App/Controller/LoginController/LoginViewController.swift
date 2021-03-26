@@ -98,7 +98,7 @@ extension LoginViewController: UITextFieldDelegate {
     
     /// Next textField,  if no textFields left hides keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldTag: Int = textField.tag
+        let textFieldTag = textField.tag
         
         if let nextTextField = self.view.viewWithTag(textFieldTag+1) as? UITextField {
             nextTextField.becomeFirstResponder()
