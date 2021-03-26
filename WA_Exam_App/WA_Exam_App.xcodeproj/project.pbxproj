@@ -119,10 +119,10 @@
 		EE0B447525F3EF0500E18886 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				23680CEA2603F88800DBC0FA /* Tab bar */,
-				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
-				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
 				2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */,
+				EEBA7500260E0107001BA50B /* LoginController */,
+				EEBA7501260E0121001BA50B /* RegistrationController */,
+				23680CEA2603F88800DBC0FA /* Tab bar */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +198,22 @@
 				EE790A9625F3B54B00E12429 /* Info.plist */,
 			);
 			path = WA_Exam_App;
+			sourceTree = "<group>";
+		};
+		EEBA7500260E0107001BA50B /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				EE790A8C25F3B54A00E12429 /* LoginViewController.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
+		EEBA7501260E0121001BA50B /* RegistrationController */ = {
+			isa = PBXGroup;
+			children = (
+				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
+			);
+			path = RegistrationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

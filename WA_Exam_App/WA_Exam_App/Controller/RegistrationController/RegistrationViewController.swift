@@ -13,7 +13,6 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var underImageView: UIView!
     
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -84,8 +83,8 @@ class RegistrationViewController: UIViewController {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
-            showAlert(text: regexText )
-            passwordTextField.setRedBorder(passwordTextField)
+            showAlert(text: regexText)
+            setRedBorder(passwordTextField)
             print("Password didnt passed Validation")
             return
         } else {
@@ -111,24 +110,24 @@ class RegistrationViewController: UIViewController {
         /// Checking for input of Users data
         if enteredName.isEmpty || enteredSurname.isEmpty || enteredPassword.isEmpty || checkedEnteredPassword.isEmpty {
             if enteredName.isEmpty {
-                firstNameTextField.setRedBorder(firstNameTextField)
+                setRedBorder(firstNameTextField)
                 print("Name field is empty")
             }
             if enteredSurname.isEmpty {
-                lastNameTextField.setRedBorder(lastNameTextField)
+                setRedBorder(lastNameTextField)
                 print("Surname field is empty")
             }
             if enteredUserName.isEmpty {
-                userNameTextField.setRedBorder(userNameTextField)
+                setRedBorder(userNameTextField)
                 print("Username field is empty")
             }
             if enteredPassword.isEmpty {
-                passwordTextField.setRedBorder(passwordTextField)
+                setRedBorder(passwordTextField)
                 passwordTextField.layer.borderColor = UIColor.red.cgColor
                 print("Password is empty")
             }
             if checkedEnteredPassword.isEmpty {
-                checkPasswordTextField.setRedBorder(checkPasswordTextField)
+                setRedBorder(checkPasswordTextField)
                 print("Check password is empty")
             }
             showAlert(text: "Marked fields should be filled")
@@ -138,7 +137,7 @@ class RegistrationViewController: UIViewController {
         validatePasswordAndRegister()
         
         if enteredPassword != checkedEnteredPassword {
-            checkPasswordTextField.setRedBorder(checkPasswordTextField)
+            setRedBorder(checkPasswordTextField)
             showAlert(text: "Password is not the same")
             return
         }
@@ -172,6 +171,11 @@ extension RegistrationViewController: UITextFieldDelegate {
     /// Tap on screen to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func setRedBorder(_ textField: UITextField) {
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.red.cgColor
     }
     
 }
