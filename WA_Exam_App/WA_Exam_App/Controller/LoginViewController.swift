@@ -27,9 +27,23 @@ class LoginViewController: UIViewController {
         
         errorTextLabel.isHidden = true
         
-        setFieldCorners()
         setKeyboardDelegates()
         
+        setTextFieldView()
+        
+    }
+    
+    /// Set delegate's for keyboard
+    func setKeyboardDelegates() {
+        [usernameTextField, passwordTextField].forEach {
+            $0?.delegate = self
+        }
+    }
+    
+    /// Set textField view
+    func setTextFieldView() {
+        setFieldCorners(usernameTextField)
+        setFieldCorners(passwordTextField)
     }
     
     /// Alert for errors in input
@@ -43,20 +57,6 @@ class LoginViewController: UIViewController {
         return
     }
     
-    /// Set delegate to hide keyboard
-    func setKeyboardDelegates() {
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
-    }
-    
-    /// Makes rounded corners for textField
-    func setFieldCorners() {
-        self.usernameTextField.layer.masksToBounds = true
-        self.passwordTextField.layer.masksToBounds = true
-        usernameTextField.layer.cornerRadius = 15
-        passwordTextField.layer.cornerRadius = 15
-    }
-    
     /// Check for filled textFields & try's Data from model
     @IBAction func loginButton(_ sender: UIButton) {
         
@@ -67,16 +67,12 @@ class LoginViewController: UIViewController {
             if enteredPassword.isEmpty && enteredUserName.isEmpty{
                 showAlert(text: "First fill all fields")
             } else if enteredUserName.isEmpty {
-                errorTextLabel.isHidden = false
                 errorTextLabel.text = "Write youre User Name, please"
-                usernameTextField.layer.borderWidth = 2
-                usernameTextField.layer.borderColor = UIColor.red.cgColor
+                usernameTextField.setInputBoarder(usernameTextField)
                 print("User didn't wrote his Username")
             } else if enteredPassword.isEmpty {
-                errorTextLabel.isHidden = false
                 errorTextLabel.text = "Password for you're User Name is empty"
-                passwordTextField.layer.borderWidth = 2
-                passwordTextField.layer.borderColor = UIColor.red.cgColor
+                passwordTextField.setInputBoarder(passwordTextField)
                 print("User didn't wrote password")
             }
             return
@@ -123,7 +119,20 @@ extension LoginViewController: UITextFieldDelegate {
         textField.layer.borderWidth = 0
         textField.layer.borderColor = UIColor.white.cgColor
     }
+    
+    /// Makes rounded corners for textField
+    func setFieldCorners(_ textField: UITextField) {
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 15
+    }
 }
 
+extension UITextField {
+    func setInputBoarder(_ textField: UITextField) {
+        textField.isHidden = false
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+}
 
 

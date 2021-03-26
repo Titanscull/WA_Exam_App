@@ -62,11 +62,16 @@ class RegistrationViewController: UIViewController {
     
     /// Set delegate to hide keyboard
     func setRegTextFieldDelegates() {
-        firstNameTextField.delegate = self
-        lastNameTextField.delegate = self
-        userNameTextField.delegate = self
-        passwordTextField.delegate = self
-        checkPasswordTextField.delegate = self
+        [firstNameTextField, lastNameTextField, userNameTextField, passwordTextField, checkPasswordTextField].forEach {
+            $0?.delegate = self
+        }
+
+        
+//        firstNameTextField.delegate = self
+//        lastNameTextField.delegate = self
+//        userNameTextField.delegate = self
+//        passwordTextField.delegate = self
+//        checkPasswordTextField.delegate = self
     }
     
     /// Alert for errors in input

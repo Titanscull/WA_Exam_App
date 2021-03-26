@@ -21,12 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
             window?.rootViewController = mainTabBarController
-            print("User is in - root Main view TabBarController")
+            print("User is in - root on Main view TabBarController")
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginNavController = storyboard.instantiateViewController(identifier: "LoginView")
             window?.rootViewController = loginNavController
-            print("User isn't loged in - root NavigationViewController")
+            print("User isn't loged in - root on NavigationViewController")
         }
     }
     
