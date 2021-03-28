@@ -24,8 +24,21 @@ class RegistrationViewController: UIViewController {
     
     private let userAPIManager = UserAPIManager.shared
     
+//    private lazy var keyboardPresenter = KeyboardNotificationClass(view: RegistrationViewController)
+    
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     private let regexText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        moveSceneUp()
+//        keyboardPresenter.moveSceneUp()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        moveSceneDown()
+//        keyboardPresenter.moveSceneDown()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,3 +193,38 @@ extension RegistrationViewController: UITextFieldDelegate {
     
 }
 
+extension RegistrationViewController {
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+                guard let userInfo = notification.userInfo else {return}
+                guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+                let keyboardFrame = keyboardSize.cgRectValue
+
+                if self.view.bounds.origin.y == 0{
+                    self.view.bounds.origin.y += keyboardFrame.height
+                }
+            }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+                if self.view.bounds.origin.y != 0 {
+                    self.view.bounds.origin.y = 0
+                }
+            }
+
+    func moveSceneUp() {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+
+    func moveSceneDown() {
+
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+
+
+
+}

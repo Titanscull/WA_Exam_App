@@ -18,6 +18,7 @@
 		23A5D34E25F5B46300EF1D40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D34D25F5B46300EF1D40 /* NetworkManager.swift */; };
 		61F80991F3FFE4033AFA2B02 /* Pods_WA_Exam_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6648EB20149A2F60F2148FF /* Pods_WA_Exam_App.framework */; };
 		EE118097260A975F00771BF3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE118096260A975F00771BF3 /* AppCoordinator.swift */; };
+		EE14192026108E920081F05F /* KeyboardNotificationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14191F26108E920081F05F /* KeyboardNotificationClass.swift */; };
 		EE3C3F1225F42C7D0034F768 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */; };
 		EE3F327725FBFCF800DE9758 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327625FBFCF800DE9758 /* User.swift */; };
 		EE3F327B25FC016700DE9758 /* UserEndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */; };
@@ -45,6 +46,7 @@
 		D6648EB20149A2F60F2148FF /* Pods_WA_Exam_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WA_Exam_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3823E23B211E411F3432A3E /* Pods-WA_Exam_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WA_Exam_App.release.xcconfig"; path = "Target Support Files/Pods-WA_Exam_App/Pods-WA_Exam_App.release.xcconfig"; sourceTree = "<group>"; };
 		EE118096260A975F00771BF3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EE14191F26108E920081F05F /* KeyboardNotificationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationClass.swift; sourceTree = "<group>"; };
 		EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EE3F327625FBFCF800DE9758 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE3F327A25FC016700DE9758 /* UserEndPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPointProtocol.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				EE3C3F1125F42C7D0034F768 /* RegistrationViewController.swift */,
+				EE14191F26108E920081F05F /* KeyboardNotificationClass.swift */,
 			);
 			path = RegistrationController;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				23680CDF2603F64E00DBC0FA /* ContentCell.swift in Sources */,
 				EE57E55625FD1F38001C7B7B /* UserParseManager.swift in Sources */,
 				EE790A8925F3B54A00E12429 /* AppDelegate.swift in Sources */,
+				EE14192026108E920081F05F /* KeyboardNotificationClass.swift in Sources */,
 				23A5D34425F5AF3800EF1D40 /* ApiManager.swift in Sources */,
 				EE3F327725FBFCF800DE9758 /* User.swift in Sources */,
 				23A5D34725F5AFB600EF1D40 /* Videos.swift in Sources */,
