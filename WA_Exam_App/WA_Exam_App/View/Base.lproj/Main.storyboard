@@ -132,9 +132,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="UNK-Fv-ec3" userLabel="Main Stack View">
-                                <rect key="frame" x="15" y="111" width="345" height="541"/>
+                                <rect key="frame" x="15" y="111" width="345" height="460.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="avT-1S-tWZ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="avT-1S-tWZ">
                                         <rect key="frame" x="39" y="0.0" width="267" height="170.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-6S-trC">
@@ -216,31 +216,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tnT-XY-soP" userLabel="SaveButton Stack View">
-                                        <rect key="frame" x="8" y="410.5" width="329" height="130.5"/>
+                                        <rect key="frame" x="8" y="410.5" width="329" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-ee-4w9">
-                                                <rect key="frame" x="0.0" y="0.0" width="329" height="130.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21f-ca-zUD">
-                                                        <rect key="frame" x="114.5" y="40.5" width="100" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="98E-Ki-fIR"/>
-                                                            <constraint firstAttribute="height" constant="50" id="ld5-z6-Sum"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="Save"/>
-                                                        <connections>
-                                                            <action selector="saveDataButton:" destination="FVv-zT-U1N" eventType="touchUpInside" id="0Jf-vH-L6a"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21f-ca-zUD">
+                                                <rect key="frame" x="0.0" y="0.0" width="329" height="50"/>
                                                 <constraints>
-                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerX" secondItem="8Pr-ee-4w9" secondAttribute="centerX" id="F1b-Nl-Jco"/>
-                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerX" secondItem="8Pr-ee-4w9" secondAttribute="centerX" id="U84-eS-mTJ"/>
-                                                    <constraint firstItem="21f-ca-zUD" firstAttribute="centerY" secondItem="8Pr-ee-4w9" secondAttribute="centerY" id="YS1-Jv-Nzu"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="98E-Ki-fIR"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ld5-z6-Sum"/>
                                                 </constraints>
-                                            </view>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveDataButton:" destination="FVv-zT-U1N" eventType="touchUpInside" id="0Jf-vH-L6a"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
