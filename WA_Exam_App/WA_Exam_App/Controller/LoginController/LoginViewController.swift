@@ -57,9 +57,8 @@ class LoginViewController: UIViewController {
         return
     }
     
-    /// Check for filled textFields & try's Data from model
-    @IBAction func loginButton(_ sender: UIButton) {
-        
+    /// Check for input data
+    func checkInputData() {
         let enteredUserName = usernameTextField.text!
         let enteredPassword = passwordTextField.text!
         
@@ -79,10 +78,32 @@ class LoginViewController: UIViewController {
             }
             return
         }
+    }
+    
+    /// Login Using parse method
+    func logIn(username: String, password: String) {
+        PFUser.logInWithUsername(inBackground: username, password: password) { user, error in
+            if user != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainView")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                print("User succesfully loged in")
+                print("From now root view controller is TabBarViewController")
+            } else {
+                print("Failed to process with data - ", error!.localizedDescription)
+                self.showAlert(text: error!.localizedDescription)
+            }
+        }
+    }
+    
+    /// Check for filled textFields & try's Data from model
+    @IBAction func loginButton(_ sender: UIButton) {
+        
+        checkInputData()
         
         print("Have data to process with")
         
-        userAPIManager.signIn(username: enteredUserName, password: enteredPassword)
+        logIn(username: usernameTextField.text!, password: passwordTextField.text!)
         
     }
     
