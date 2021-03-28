@@ -84,19 +84,20 @@
 		23680CDC2603F5CD00DBC0FA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				23680CDD2603F64E00DBC0FA /* ContentCell.swift */,
 				23680CDE2603F64E00DBC0FA /* ContentCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		23680CEA2603F88800DBC0FA /* Tab bar */ = {
+		23816BB126100402006CDC73 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
 				23680CEC2603F91E00DBC0FA /* PhotosViewController.swift */,
 				23680CEF2603F92D00DBC0FA /* VideosViewController.swift */,
+				2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */,
+				23680CDD2603F64E00DBC0FA /* ContentCell.swift */,
 			);
-			path = "Tab bar";
+			path = MainController;
 			sourceTree = "<group>";
 		};
 		23A5D34C25F5B40500EF1D40 /* Services */ = {
@@ -119,10 +120,9 @@
 		EE0B447525F3EF0500E18886 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2392CD7526089D0B00A2EDD2 /* DetailViewController.swift */,
 				EEBA7500260E0107001BA50B /* LoginController */,
 				EEBA7501260E0121001BA50B /* RegistrationController */,
-				23680CEA2603F88800DBC0FA /* Tab bar */,
+				23816BB126100402006CDC73 /* MainController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

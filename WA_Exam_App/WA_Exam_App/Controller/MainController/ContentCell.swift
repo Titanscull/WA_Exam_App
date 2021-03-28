@@ -11,7 +11,9 @@ class ContentCell: UICollectionViewCell {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
+
+    var urlPhoto: String = ""
+    var urlVideo: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +24,7 @@ class ContentCell: UICollectionViewCell {
     
     func setupPhotoCell(photo: Photo) {
 
+        self.urlPhoto = photo.src.original 
         self.topLabel.text = photo.photographer
         if let url = URL(string: photo.src.tiny) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -38,8 +41,9 @@ class ContentCell: UICollectionViewCell {
     
     func setupVideoCell(video: Video) {
         
+        self.urlVideo = video.videoFiles.first?.link ?? ""
         self.topLabel.text = video.user.name
-        if let url = URL(string: video.image) {
+        if let url = URL(string: video.videoPictures.first?.picture ?? video.image) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 

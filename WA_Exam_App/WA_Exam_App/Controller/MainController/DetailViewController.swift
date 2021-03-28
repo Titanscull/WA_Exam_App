@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var detailView: WKWebView!
+    var url: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        detailView.load(URLRequest(url: URL(string: self.url)!))
     }
 }
