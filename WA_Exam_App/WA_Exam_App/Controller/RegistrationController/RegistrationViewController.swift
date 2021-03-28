@@ -24,20 +24,20 @@ class RegistrationViewController: UIViewController {
     
     private let userAPIManager = UserAPIManager.shared
     
-//    private lazy var keyboardPresenter = KeyboardNotificationClass(view: RegistrationViewController)
+    //    private lazy var keyboardPresenter = KeyboardNotificationClass(view: RegistrationViewController)
     
     private let regexCondition =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}")
     private let regexText = "Password should contain at least one number, one upper cased letter and to be 6 or more characters in lenght"
     
     override func viewWillAppear(_ animated: Bool) {
         moveSceneUp()
-//        keyboardPresenter.moveSceneUp()
+        //        keyboardPresenter.moveSceneUp()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         moveSceneDown()
-//        keyboardPresenter.moveSceneDown()
+        //        keyboardPresenter.moveSceneDown()
     }
     
     override func viewDidLoad() {
@@ -92,7 +92,7 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Check if password is valid & allow to register a user
-    func validatePasswordAndRegister() {
+    func validatePassword() {
         let isValid = regexTest(password: passwordTextField.text!)
         
         if (isValid == false) {
@@ -100,20 +100,11 @@ class RegistrationViewController: UIViewController {
             setRedBorder(passwordTextField)
             print("Password didnt passed Validation")
             return
-        } else {
-            userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                    self.userAPIManager.logout()
-                }
-            }
-            print("Password valid - user is safe")
         }
     }
     
-    /// Saves correct data to model
-    @IBAction func saveDataButton(_ sender: UIButton) {
-        
+    /// Check users input data
+    func checkInputData() {
         guard let enteredName = firstNameTextField.text,
               let enteredSurname = lastNameTextField.text,
               let enteredUserName = userNameTextField.text,
@@ -146,14 +137,34 @@ class RegistrationViewController: UIViewController {
             showAlert(text: "Marked fields should be filled")
             return
         }
-        
-        validatePasswordAndRegister()
+        // MARK: Password validation with regex
+        validatePassword()
         
         if enteredPassword != checkedEnteredPassword {
             setRedBorder(checkPasswordTextField)
             showAlert(text: "Password is not the same")
             return
         }
+        
+    }
+    
+    /// Create user
+    func createUser() {
+        userAPIManager.createUser(name: firstNameTextField.text!, surname: lastNameTextField.text!, username: userNameTextField.text!, password: passwordTextField.text!) { _ in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+                self.userAPIManager.logout()
+            }
+        }
+        print("Password valid - user is safe")
+    }
+    
+    /// Saves correct UserData
+    @IBAction func saveDataButton(_ sender: UIButton) {
+        
+        checkInputData()
+        
+        createUser()
         
     }
     
@@ -194,37 +205,37 @@ extension RegistrationViewController: UITextFieldDelegate {
 }
 
 extension RegistrationViewController {
-
+    
     @objc func keyboardWillShow(notification: NSNotification) {
-                guard let userInfo = notification.userInfo else {return}
-                guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-                let keyboardFrame = keyboardSize.cgRectValue
-
-                if self.view.bounds.origin.y == 0{
-                    self.view.bounds.origin.y += keyboardFrame.height
-                }
-            }
-
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        if self.view.bounds.origin.y == 0{
+            self.view.bounds.origin.y += keyboardFrame.height
+        }
+    }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
-                if self.view.bounds.origin.y != 0 {
-                    self.view.bounds.origin.y = 0
-                }
-            }
-
+        if self.view.bounds.origin.y != 0 {
+            self.view.bounds.origin.y = 0
+        }
+    }
+    
     func moveSceneUp() {
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        
     }
-
+    
     func moveSceneDown() {
-
+        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        
     }
-
-
-
+    
+    
+    
 }
