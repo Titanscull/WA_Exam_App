@@ -16,13 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="251"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BBJ-mw-WCz">
-                        <rect key="frame" x="5" y="82" width="270" height="164"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BBJ-mw-WCz">
+                        <rect key="frame" x="5" y="5" width="270" height="211"/>
+                        <gestureRecognizers/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jo2-p6-y8T">
-                        <rect key="frame" x="5" y="5" width="270" height="69"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jo2-p6-y8T">
+                        <rect key="frame" x="5" y="216" width="270" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -30,14 +31,14 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Jo2-p6-y8T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="S4r-M2-EAw"/>
-                <constraint firstItem="BBJ-mw-WCz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="VT5-Cu-ah5"/>
-                <constraint firstItem="BBJ-mw-WCz" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="38" id="ZWM-rt-5ey"/>
-                <constraint firstAttribute="trailing" secondItem="Jo2-p6-y8T" secondAttribute="trailing" constant="5" id="cQG-xE-vae"/>
-                <constraint firstAttribute="bottom" secondItem="BBJ-mw-WCz" secondAttribute="bottom" constant="5" id="eDq-9O-GWe"/>
-                <constraint firstAttribute="trailing" secondItem="BBJ-mw-WCz" secondAttribute="trailing" constant="5" id="f6S-gQ-Rsu"/>
-                <constraint firstItem="BBJ-mw-WCz" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="owQ-qG-WKD"/>
-                <constraint firstItem="Jo2-p6-y8T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="pHO-PC-NDh"/>
+                <constraint firstAttribute="bottom" secondItem="Jo2-p6-y8T" secondAttribute="bottom" constant="5" id="0pc-et-2k3"/>
+                <constraint firstItem="BBJ-mw-WCz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="70D-d1-zZa"/>
+                <constraint firstItem="BBJ-mw-WCz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="7P4-QI-We2"/>
+                <constraint firstItem="Jo2-p6-y8T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Jxy-Ya-Kxr"/>
+                <constraint firstAttribute="bottom" secondItem="BBJ-mw-WCz" secondAttribute="bottom" constant="35" id="NrR-mD-D0L"/>
+                <constraint firstItem="Jo2-p6-y8T" firstAttribute="top" secondItem="BBJ-mw-WCz" secondAttribute="bottom" id="RUY-CL-4GZ"/>
+                <constraint firstAttribute="trailing" secondItem="BBJ-mw-WCz" secondAttribute="trailing" constant="5" id="b5h-2u-ETy"/>
+                <constraint firstAttribute="trailing" secondItem="Jo2-p6-y8T" secondAttribute="trailing" constant="5" id="rfj-fQ-K6M"/>
             </constraints>
             <size key="customSize" width="280" height="251"/>
             <connections>
