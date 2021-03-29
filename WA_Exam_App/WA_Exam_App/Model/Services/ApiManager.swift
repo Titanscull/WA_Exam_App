@@ -8,10 +8,10 @@
 import Foundation
 
 enum EndpointAPI: String {
-    case popularVideos = "https://api.pexels.com/videos/popular"
+    case popularVideos = "https://api.pexels.com/videos/popular?per_page=40"
     case searchVideos = "https://api.pexels.com/videos/search"
     case getVideo = "https://api.pexels.com/videos/videos/:id"
-    case curatedPhotos = "https://api.pexels.com/v1/curated"
+    case curatedPhotos = "https://api.pexels.com/v1/curated?per_page=40"
     case searchPhotos = "https://api.pexels.com/v1/search"
     case getPhoto = "https://api.pexels.com/v1/photos/:id"
 }
