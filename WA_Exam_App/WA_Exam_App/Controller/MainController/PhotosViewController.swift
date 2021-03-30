@@ -44,9 +44,24 @@ class PhotosViewController: UIViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.row == photos.count - 1 {
-//
-//        }
+        let totalElements = Double(photos.count)
+        if indexPath.row >= Int((totalElements / 100.0 * 70.0)) {
+            loadMoreContent()
+        }
+    }
+    
+    func loadMoreContent() {
+        apiManager.getMorePhotos { [weak self] arrayPhotos in
+            guard let self = self else { return }
+            
+            for element in arrayPhotos {
+                self.photos.append(element)
+            }
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
 }

@@ -61,6 +61,6 @@ struct VideoFile: Codable {
 // MARK: - VideoPicture
 struct VideoPicture: Codable {
     let id: Int
-    let picture: String
+    let picture: String?
     let nr: Int
 }
