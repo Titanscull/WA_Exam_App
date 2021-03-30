@@ -45,7 +45,7 @@ class RegistrationViewController: UIViewController {
         
         setFieldCorners()
         setImageCorners()
-        setRegTextFieldDelegates()
+        setTextFieldDelegates()
         
     }
     
@@ -68,7 +68,7 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Set delegate to hide keyboard
-    func setRegTextFieldDelegates() {
+    func setTextFieldDelegates() {
         [firstNameTextField, lastNameTextField, userNameTextField, passwordTextField, checkPasswordTextField].forEach {
             $0?.delegate = self
         }
@@ -86,25 +86,13 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Regex implementation
-    func regexTest(password : String) -> Bool {
+    func passwordValidation(password : String) -> Bool {
         let validation = NSPredicate(format: "SELF MATCHES %@", regexCondition)
         return validation.evaluate(with: password)
     }
     
-    /// Check if password is valid & allow to register a user
-    func validatePassword() {
-        let isValid = regexTest(password: passwordTextField.text!)
-        
-        if (isValid == false) {
-            showAlert(text: regexText)
-            setRedBorder(passwordTextField)
-            print("Password didnt passed Validation")
-            return
-        }
-    }
-    
     /// Check users input data
-    func checkInputData() {
+    func userDataValidation() {
         guard let enteredName = firstNameTextField.text,
               let enteredSurname = lastNameTextField.text,
               let enteredUserName = userNameTextField.text,
@@ -137,13 +125,22 @@ class RegistrationViewController: UIViewController {
             showAlert(text: "Marked fields should be filled")
             return
         }
-        // MARK: Password validation with regex
-        validatePassword()
         
-        if enteredPassword != checkedEnteredPassword {
-            setRedBorder(checkPasswordTextField)
-            showAlert(text: "Password is not the same")
-            return
+        if passwordTextField.text == checkPasswordTextField.text {
+            // MARK: Password Validation
+            let isValid = passwordValidation(password: passwordTextField.text!)
+            
+            if (isValid == false) {
+                showAlert(text: regexText)
+                setRedBorder(passwordTextField)
+                print("Password didnt passed Validation")
+                return
+            }
+            // MARK: Create user
+            createUser()
+            
+        } else {
+            showAlert(text: "Passwords are not the same")
         }
         
     }
@@ -162,9 +159,7 @@ class RegistrationViewController: UIViewController {
     /// Saves correct UserData
     @IBAction func saveDataButton(_ sender: UIButton) {
         
-        checkInputData()
-        
-        createUser()
+        userDataValidation()
         
     }
     
