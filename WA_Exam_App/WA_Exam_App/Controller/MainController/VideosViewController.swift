@@ -44,6 +44,26 @@ class VideosViewController: UIViewController {
  
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let totalElements = Double(videos.count)
+        if indexPath.row >= Int((totalElements / 100.0 * 70.0)) {
+            loadMoreContent()
+        }
+    }
+    
+    func loadMoreContent() {
+        apiManager.getMoreVideos { [weak self] arrayVideos in
+            guard let self = self else { return }
+            
+            for element in arrayVideos {
+                self.videos.append(element)
+            }
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension VideosViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
