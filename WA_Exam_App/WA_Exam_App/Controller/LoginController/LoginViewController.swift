@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     /// User parse manager
     private let userAPIManager = UserAPIManager.shared
     
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +59,13 @@ class LoginViewController: UIViewController {
         return
     }
     
+    /// Setup activity indicator
+    func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+    }
+    
     /// Check for input data
     func checkInputData() {
         let enteredUserName = usernameTextField.text!
@@ -78,10 +87,12 @@ class LoginViewController: UIViewController {
             }
             return
         }
+        print("Have data to process with")
     }
     
     /// Login Using parse method
     func logIn(username: String, password: String) {
+        setupActivityIndicator()
         PFUser.logInWithUsername(inBackground: username, password: password) { user, error in
             if user != nil {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -93,6 +104,7 @@ class LoginViewController: UIViewController {
                 print("Failed to process with data - ", error!.localizedDescription)
                 self.showAlert(text: error!.localizedDescription)
             }
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -100,8 +112,6 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(_ sender: UIButton) {
         
         checkInputData()
-        
-        print("Have data to process with")
         
         logIn(username: usernameTextField.text!, password: passwordTextField.text!)
         
