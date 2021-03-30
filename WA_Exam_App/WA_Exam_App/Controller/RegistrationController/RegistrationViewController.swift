@@ -45,7 +45,7 @@ class RegistrationViewController: UIViewController {
         
         setFieldCorners()
         setImageCorners()
-        setRegTextFieldDelegates()
+        setTextFieldDelegates()
         
     }
     
@@ -68,7 +68,7 @@ class RegistrationViewController: UIViewController {
     }
     
     /// Set delegate to hide keyboard
-    func setRegTextFieldDelegates() {
+    func setTextFieldDelegates() {
         [firstNameTextField, lastNameTextField, userNameTextField, passwordTextField, checkPasswordTextField].forEach {
             $0?.delegate = self
         }
@@ -100,11 +100,13 @@ class RegistrationViewController: UIViewController {
             setRedBorder(passwordTextField)
             print("Password didnt passed Validation")
             return
+        } else {
+            createUser()
         }
     }
     
     /// Check users input data
-    func checkInputData() {
+    func userValidation() {
         guard let enteredName = firstNameTextField.text,
               let enteredSurname = lastNameTextField.text,
               let enteredUserName = userNameTextField.text,
@@ -137,12 +139,9 @@ class RegistrationViewController: UIViewController {
             showAlert(text: "Marked fields should be filled")
             return
         }
-        // MARK: Password validation with regex
-        validatePassword()
         
-        if enteredPassword != checkedEnteredPassword {
-            setRedBorder(checkPasswordTextField)
-            showAlert(text: "Password is not the same")
+        if passwordTextField.text == checkPasswordTextField.text {
+            validatePassword()
             return
         }
         
@@ -162,9 +161,7 @@ class RegistrationViewController: UIViewController {
     /// Saves correct UserData
     @IBAction func saveDataButton(_ sender: UIButton) {
         
-        checkInputData()
-        
-        createUser()
+        userValidation()
         
     }
     
